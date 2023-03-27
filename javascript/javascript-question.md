@@ -429,15 +429,10 @@ helloBob(); // "Hello, Bob!"
 
 > Các đặc tính của closure trong JavaScript bao gồm:
 > - Closure cho phép các biến nằm trong phạm vi của một hàm cha có thể được sử dụng bởi các hàm con bên trong đó.
->
 > - Closure được tạo ra khi một hàm bên trong được tạo ra bên trong một hàm khác và có thể truy cập các biến của hàm cha.
->
 > - Các biến bên ngoài phạm vi của hàm con được giữ lại bởi closure, do đó chúng có thể được sử dụng lại sau khi hàm cha đã thực thi xong.
->
 > - Closure giúp cho các biến và hàm được sử dụng lại và tái sử dụng một cách dễ dàng, làm cho mã JavaScript trở nên dễ đọc và dễ bảo trì hơn.
->
 > - Việc sử dụng closure cần được cẩn thận để tránh gây ra các vấn đề về hiệu suất và quản lý bộ nhớ, do closure giữ các biến trong bộ nhớ, dẫn đến tiêu tốn bộ nhớ và tăng thời gian hoạt động của chương trình.
->
 > - Closure là một tính năng quan trọng của JavaScript và được sử dụng rộng rãi trong nhiều thư viện và khung làm việc của JavaScript.
 
 [[↑] Back to top](#table-of-contents)
