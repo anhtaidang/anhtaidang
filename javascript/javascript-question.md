@@ -6,14 +6,14 @@
 ![logoJSpng](../assets/images/logoJS.png)
 ---
 # Table of Contents
-- [Explain How to `this` work in Javascript](#explain-how-to-this-work-in-javascript)
-- [Explain Bind Call method in Javascript](#explain-bind-call-method-in-javascript)
-- [Explain `let`,`const`,`var` in Javascript](#explain-let-const-var-in-javascript)
-- [Explain Cache-control](#explain-cache-control)
-- [Explain HSTS](#explain-hsts)
-- [Explain HTTPS](#explain-https)
-- [Explain Truly & Faulty](#explain-truly-faulty)
-- [Explain difference between `.forEach` & `.map` - `.find()`, `.findIndex()` & `.filter()`](#-explain-difference-between-foreach-map-find-findindex-filter)
+- [Explain How to `this` work in Javascript](#-explain-how-to-this-work-in-javascript)
+- [Explain Bind Call method in Javascript](#-explain-bind-call-method-in-javascript)
+- [Explain `let`,`const`,`var` in Javascript](#-explain-letconstvar-in-javascript)
+- [Explain Cache-control](#-explain-cache-control)
+- [Explain HSTS](#-explain-hsts)
+- [Explain HTTPS](#-explain-https)
+- [Explain Truly & Faulty](#-explain-truly--faulty)
+- [Explain difference between `.forEach` & `.map` - `.find()`, `.findIndex()` & `.filter()`](#-explain-difference-between-foreach--map---find-findindex--filter)
 ---
 ## 🧠 Explain How to `this` work in Javascript.
 Trong JavaScript, `this` là một từ khóa đặc biệt được sử dụng để tham chiếu đến đối tượng hiện tại, tức là đối tượng phương thức hoặc thuộc tính được gọi.
