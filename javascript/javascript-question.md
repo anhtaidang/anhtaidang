@@ -6,6 +6,7 @@
 # Table of Contents
 - [Explain How to `this` work in Javascript](#explain-how-to-this-work-in-javascript)
 - [Explain Bind Call method in Javascript](#explain-bind-call-method-in-javascript)
+- [Explain `let`,`const`,`var` in Javascript](#explain-let-const-var-in-javascript)
 - [Explain Cache-control](#explain-cache-control)
 - [Explain HSTS](#explain-hsts)
 - [Explain HTTPS](#explain-https)
@@ -173,6 +174,73 @@ greet.apply(person, ['Hello', 'Mary']); // Hello, Mary! My name is John.
 > <br/><br/>
 > - Sử dụng: Phương thức `call()` thường được sử dụng khi số lượng tham số được truyền vào hàm là biết trước, còn phương thức `apply()` thường được sử dụng khi số lượng tham số là không biết trước và được lưu trữ trong một mảng.
 > 
+
+[[↑] Back to top](#table-of-contents)
+
+## 🧠 Explain `let`,`const`,`var` in Javascript
+
+Trong Javascript, `let`, `const`, và `var` đều được sử dụng để khai báo biến. Tuy nhiên, chúng có những sự khác nhau quan trọng về phạm vi, cách thức hoạt động, và tính chất bảo vệ giá trị.
+
+`var` được sử dụng để khai báo biến toàn cục hoặc cục bộ trong một hàm. Trong khi đó, let và const được sử dụng để khai báo biến cục bộ trong một khối mã, như một khối lệnh hoặc một hàm.
+
+Về cách thức hoạt động, `var` sẽ có phạm vi là toàn bộ hàm hoặc tệp tin mà nó được khai báo, trong khi `let` và `const` sẽ có phạm vi là khối mã bao quanh nó. Điều này có nghĩa là biến được khai báo bằng let hoặc const chỉ có thể được truy cập trong khối mã bao quanh nó, trong khi biến được khai báo bằng var có thể được truy cập từ bất kỳ đâu trong hàm hoặc tệp tin.
+
+Tính chất bảo vệ giá trị của `let` và `const` khác với `var`. Khi một biến được khai báo bằng `let` hoặc `const`, giá trị của nó có thể được gán lại nhưng không thể khai báo lại trong cùng một khối mã. Trong khi đó, biến được khai báo bằng var có thể khai báo lại và gán giá trị mới một cách dễ dàng.
+
+Một sự khác biệt quan trọng khác giữa `let` và `const` đó là `let` cho phép gán giá trị mới cho biến, trong khi `const` không cho phép. Nếu một biến được khai báo bằng `const`, giá trị của nó không thể thay đổi sau khi được gán.
+
+Tóm lại, `var` có phạm vi toàn cục hoặc cục bộ trong hàm, có thể khai báo lại và gán giá trị mới. `let` và `const` chỉ có phạm vi trong khối mã bao quanh nó, không thể khai báo lại nhưng let có thể gán giá trị mới, trong khi `const` không thể thay đổi giá trị đã gán.
+
+Chúng ta hãy xem qua một số ví dụ để hiểu rõ hơn về sự khác nhau giữa `let`, `const`, và `var` trong JavaScript.
+
+#### 1. Ví dụ về phạm vi (scope):
+
+```js
+function example() {
+  var a = 1;
+  let b = 2;
+  const c = 3;
+  
+  if (true) {
+    var a = 4;
+    let b = 5;
+    const c = 6;
+    console.log(a, b, c); // output: 4 5 6
+  }
+  
+  console.log(a, b, c); // output: 4 2 3
+}
+
+example();
+```
+
+Ở đây, biến `a` được khai báo bằng `var` và có thể truy cập từ bất kỳ đâu trong hàm `example()`. Trong khi đó, biến `b` và `c` được khai báo bằng `let` và `const` và chỉ có thể truy cập trong khối mã bao quanh nó, do đó, giá trị của `b` và `c` sẽ không bị ảnh hưởng bởi việc khai báo lại trong khối mã `if`.
+
+#### 2. Ví dụ về tính chất bảo vệ giá trị:
+
+```js
+let x = 1;
+const y = 2;
+
+x = 3;
+// y = 4; // không thể gán lại giá trị cho biến đã khai báo bằng const
+
+console.log(x, y); // output: 3 2
+```
+
+Ở đây, biến `x` được khai báo bằng let, cho phép gán lại giá trị mới cho biến. Trong khi đó, biến `y` được khai báo bằng const và không thể gán lại giá trị mới, do đó, khi ta thử gán giá trị mới cho `y`, chương trình sẽ bị lỗi.
+
+#### 3. Ví dụ về hoisting (nâng cao):
+
+```js
+console.log(a); // output: undefined
+var a = 1;
+
+console.log(b); // Uncaught ReferenceError: b is not defined
+let b = 2;
+```
+
+Ở đây, biến `a` được khai báo bằng `var` được hoisting lên đầu phạm vi và có giá trị là `undefined` trước khi được gán giá trị. Trong khi đó, biến `b` được khai báo bằng `let` không được hoisting, do đó, khi ta cố gắng truy cập b trước khi khai báo, chương trình sẽ bị lỗi.
 
 [[↑] Back to top](#table-of-contents)
 
