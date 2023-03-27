@@ -11,6 +11,7 @@
 - [Explain HSTS](#explain-hsts)
 - [Explain HTTPS](#explain-https)
 - [Explain Truly & Faulty](#explain-truly-faulty)
+- [Explain difference between `.forEach` & `.map` - `.find()`, `.findIndex()` & `.filter()`](#-explain-difference-between-foreach-map-find-findindex-filter)
 
 ## 🧠 Explain How to `this` work in Javascript.
 Trong JavaScript, `this` là một từ khóa đặc biệt được sử dụng để tham chiếu đến đối tượng hiện tại, tức là đối tượng phương thức hoặc thuộc tính được gọi.
@@ -354,5 +355,53 @@ console.log("Please enter your age"); // Hiển thị "Please enter your age"
 Trong ví dụ trên, biến age không được gán giá trị nào, do đó nó được xem là một giá trị "faulty". Do đó, điều kiện if được đánh giá là sai và câu lệnh trong khối else được thực thi.
 
 Các giá trị "truly" và "faulty" cũng được sử dụng để kiểm tra tính đúng đắn của dữ liệu được nhập vào từ người dùng hoặc được trả về từ các API. Nếu một giá trị là "truly", nó được xem là dữ liệu hợp lệ và có thể được sử dụng, ngược lại, nếu nó là "faulty", thì nó được xem là dữ liệu không hợp lệ và cần được xử lý hoặc báo lỗi.
+
+[[↑] Back to top](#table-of-contents)
+
+## 🧠 Explain difference between `.forEach` & `.map` - `.find()`, `.findIndex()` & `.filter()`
+### `.forEach` & `.map`
+Cả hai phương thức `.forEach` và `.map` đều được sử dụng để lặp qua các phần tử trong một mảng trong JavaScript. Tuy nhiên, có một số sự khác biệt quan trọng giữa chúng.
+
+#### - Phương thức `.forEach()` được sử dụng để lặp qua một mảng và thực hiện một hành động cho mỗi phần tử. Nó sẽ không trả về một mảng mới, mà chỉ thực hiện một hành động trên mỗi phần tử.
+Ví dụ:
+```js
+const arr = [1, 2, 3, 4];
+
+arr.forEach((num) => console.log(num * 2));
+
+// Kết quả sẽ là:
+2
+4
+6
+8
+```
+
+#### - Phương thức `.map()` cũng được sử dụng để lặp qua một mảng, nhưng nó trả về một mảng mới được tạo ra bằng cách thực hiện một hành động trên mỗi phần tử của mảng ban đầu. Kết quả trả về là một mảng mới với các giá trị được biến đổi theo cách mong muốn.
+Ví dụ:
+```js
+const arr = [1, 2, 3, 4];
+
+const newArr = arr.map((num) => num * 2);
+
+console.log(newArr);
+
+// Kết quả sẽ là:
+[2, 4, 6, 8]
+```
+---
+> - Vì `.map()` trả về một mảng mới, nên nó thường được sử dụng để biến đổi dữ liệu trong mảng ban đầu để tạo ra một mảng mới với các giá trị được xử lý theo cách khác nhau.
+> - Tóm lại, `.forEach()` và `.map()` đều là phương thức lặp qua một mảng trong JavaScript. Tuy nhiên, `.forEach()` được sử dụng để thực hiện mutable trên mỗi phần tử trong mảng ban đầu, trong khi đó, `.map()` được sử dụng để biến đổi các giá trị trong mảng ban đầu và trả về một mảng mới.
+> - Về mặt hiệu suất, phương thức .map() có thể nhanh hơn phương thức `.forEach()`, tuy nhiên sự khác biệt không đáng kể và phụ thuộc vào từng trường hợp sử dụng.
+> 
+---
+### `.find()`, `.findIndex()` và `.filter()`
+Trong JavaScript, `.find` và `.filter` đều là các phương thức cho phép bạn tìm kiếm và lọc các phần tử trong một mảng.
+
+#### - Phương thức `.find` sẽ trả về giá trị đầu tiên trong mảng. Nếu không có phần tử nào thỏa mãn điều kiện, phương thức sẽ trả về `undefined`.
+#### - Phương thức `.findIndex` sẽ trả về chỉ số của giá trị đầu tiên trong mảng. Nếu không có phần tử nào thỏa mãn điều kiện, phương thức sẽ trả về `-1`.
+#### - Phương thức `.filter` sẽ trả về một mảng mới chứa tất cả các phần tử trong mảng ban đầu.
+
+> - Tóm lại, `.find` được sử dụng để tìm kiếm và trả về phần tử đầu tiên trong mảng thỏa mãn điều kiện, trong khi `.filter` được sử dụng để lọc các phần tử trong mảng theo điều kiện và trả về một mảng mới chứa các phần tử đó.
+> - Nếu so sánh 2 phương thức này về cấu trúc code, thì phương thức `.find` thường sẽ nhanh hơn phương thức `.filter`, vì `.find` sẽ chỉ trả về phần tử đầu tiên trong mảng thỏa mãn điều kiện, trong khi `.filter` sẽ duyệt qua toàn bộ mảng và trả về một mảng mới.
 
 [[↑] Back to top](#table-of-contents)
