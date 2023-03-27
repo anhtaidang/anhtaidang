@@ -181,7 +181,7 @@ greet.apply(person, ['Hello', 'Mary']); // Hello, Mary! My name is John.
 
 Trong Javascript, `let`, `const`, và `var` đều được sử dụng để khai báo biến. Tuy nhiên, chúng có những sự khác nhau quan trọng về phạm vi, cách thức hoạt động, và tính chất bảo vệ giá trị.
 
-`var` được sử dụng để khai báo biến toàn cục hoặc cục bộ trong một hàm. Trong khi đó, let và const được sử dụng để khai báo biến cục bộ trong một khối mã, như một khối lệnh hoặc một hàm.
+`var` được sử dụng để khai báo biến toàn cục hoặc cục bộ trong một hàm. Trong khi đó, `let` và `const` được sử dụng để khai báo biến cục bộ trong một khối mã, như một khối lệnh hoặc một hàm.
 
 Về cách thức hoạt động, `var` sẽ có phạm vi là toàn bộ hàm hoặc tệp tin mà nó được khai báo, trong khi `let` và `const` sẽ có phạm vi là khối mã bao quanh nó. Điều này có nghĩa là biến được khai báo bằng let hoặc const chỉ có thể được truy cập trong khối mã bao quanh nó, trong khi biến được khai báo bằng var có thể được truy cập từ bất kỳ đâu trong hàm hoặc tệp tin.
 
