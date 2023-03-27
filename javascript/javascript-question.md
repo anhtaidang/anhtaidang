@@ -14,6 +14,7 @@
 - [Explain HTTPS](#-explain-https)
 - [Explain Truly & Faulty](#-explain-truly--faulty)
 - [Explain difference between `.forEach` & `.map` - `.find()`, `.findIndex()` & `.filter()`](#-explain-difference-between-foreach--map---find-findindex--filter)
+- [Explain Closure in Javascript](#-explain-closure-in-javascript)
 ---
 ## 🧠 Explain How to `this` work in Javascript.
 Trong JavaScript, `this` là một từ khóa đặc biệt được sử dụng để tham chiếu đến đối tượng hiện tại, tức là đối tượng phương thức hoặc thuộc tính được gọi.
@@ -405,5 +406,38 @@ Trong JavaScript, `.find` và `.filter` đều là các phương thức cho phé
 
 > - Tóm lại, `.find` được sử dụng để tìm kiếm và trả về phần tử đầu tiên trong mảng thỏa mãn điều kiện, trong khi `.filter` được sử dụng để lọc các phần tử trong mảng theo điều kiện và trả về một mảng mới chứa các phần tử đó.
 > - Nếu so sánh 2 phương thức này về cấu trúc code, thì phương thức `.find` thường sẽ nhanh hơn phương thức `.filter`, vì `.find` sẽ chỉ trả về phần tử đầu tiên trong mảng thỏa mãn điều kiện, trong khi `.filter` sẽ duyệt qua toàn bộ mảng và trả về một mảng mới.
+
+[[↑] Back to top](#table-of-contents)
+
+### 🧠 Explain Closure in Javascript
+Closure trong JavaScript là một tính năng cho phép một hàm có thể truy cập và sử dụng các biến bên ngoài phạm vi của nó, bao gồm các biến được định nghĩa trong hàm cha hoặc các biến toàn cục.
+
+Khi một hàm được định nghĩa bên trong một hàm khác, hàm con được tạo ra sẽ được kết nối với phạm vi của hàm cha, do đó các biến bên ngoài phạm vi của hàm con vẫn có thể được truy cập và sử dụng.
+
+```js
+function greeting(name) {
+  var message = "Hello, " + name + "!";
+  function sayHello() {
+    console.log(message);
+  }
+  return sayHello;
+}
+
+var helloBob = greeting("Bob");
+helloBob(); // "Hello, Bob!"
+```
+
+> Các đặc tính của closure trong JavaScript bao gồm:
+> - Closure cho phép các biến nằm trong phạm vi của một hàm cha có thể được sử dụng bởi các hàm con bên trong đó.
+>
+> - Closure được tạo ra khi một hàm bên trong được tạo ra bên trong một hàm khác và có thể truy cập các biến của hàm cha.
+>
+> - Các biến bên ngoài phạm vi của hàm con được giữ lại bởi closure, do đó chúng có thể được sử dụng lại sau khi hàm cha đã thực thi xong.
+>
+> - Closure giúp cho các biến và hàm được sử dụng lại và tái sử dụng một cách dễ dàng, làm cho mã JavaScript trở nên dễ đọc và dễ bảo trì hơn.
+>
+> - Việc sử dụng closure cần được cẩn thận để tránh gây ra các vấn đề về hiệu suất và quản lý bộ nhớ, do closure giữ các biến trong bộ nhớ, dẫn đến tiêu tốn bộ nhớ và tăng thời gian hoạt động của chương trình.
+>
+> - Closure là một tính năng quan trọng của JavaScript và được sử dụng rộng rãi trong nhiều thư viện và khung làm việc của JavaScript.
 
 [[↑] Back to top](#table-of-contents)
