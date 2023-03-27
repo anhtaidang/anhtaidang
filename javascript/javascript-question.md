@@ -1,9 +1,9 @@
 ---
 <h1 align="center">JavaScript Questions</h1>
----
-#### Made by <a href="https://www.facebook.com/anhtaidang.developer">anhtaidang</a>
-![logoJSpng](../assets/images/logoJS.png)
 
+#### Made by <a href="https://www.facebook.com/anhtaidang.developer">anhtaidang</a>
+
+![logoJSpng](../assets/images/logoJS.png)
 ---
 # Table of Contents
 - [Explain How to `this` work in Javascript](#explain-how-to-this-work-in-javascript)
