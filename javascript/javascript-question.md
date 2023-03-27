@@ -1,21 +1,92 @@
 ---
-Title: JavaScript Questions
+<h1 align="center">JavaScript Questions</h1>
 ---
-#### Made by <a href="https://www.facebook.com/anhtaidang.developer">anhtaidang</a>
-
+#### **Made by <a href="https://www.facebook.com/anhtaidang.developer">anhtaidang</a>**
+![logoJSpng](../assets/images/logoJS.png)
 # Table of Contents
-- [Bind Call method in Javascript](#bind-call-method-in-javascript)
+- [Explain How to `this` work in Javascript](#explain-how-to-this-work-in-javascript)
+- [Explain Bind Call method in Javascript](#explain-bind-call-method-in-javascript)
 - [Explain Cache-control](#explain-cache-control)
 - [Explain HSTS](#explain-hsts)
 - [Explain HTTPS](#explain-https)
+- [Explain Truly & Faulty](#explain-truly-faulty)
 
->## Bind Call method in Javascript.
+## 🧠 Explain How to `this` work in Javascript.
+Trong JavaScript, `this` là một từ khóa đặc biệt được sử dụng để tham chiếu đến đối tượng hiện tại, tức là đối tượng phương thức hoặc thuộc tính được gọi.
 
-Trong JavaScript, `bind()` và `call()` đều là các phương thức dùng để thay đổi context (ngữ cảnh) của một hàm. Tuy nhiên, cách thực hiện và cách sử dụng của chúng khác nhau như sau:
+Cách hoạt động của this được xác định bởi cách mà một phương thức hoặc hàm được gọi. 
+Có 4 cách thường được sử dụng để thiết lập giá trị của `this`:
 
-1. `call()`: phương thức này cho phép gọi một hàm và thiết lập context cho hàm đó ngay lúc đó. Cú pháp của `call()` như sau:
+#### 1. Khi gọi phương thức trên một đối tượng, `this` được thiết lập thành đối tượng đó:
+```js
+const person = {
+  name: 'John',
+  sayHello() {
+    console.log('Hello, ' + this.name);
+  }
+};
 
-```javascript
+person.sayHello(); // Hello, John
+```
+
+Trong ví dụ này, khi `sayHello()` được gọi trên đối tượng person, this được thiết lập thành person.
+
+#### 2. Khi gọi hàm không được gọi trên đối tượng, `this` được thiết lập thành đối tượng toàn cục (`window` trong trình duyệt hoặc `global` trong Node.js):
+
+```js
+function sayHello() {
+  console.log('Hello, ' + this.name);
+}
+
+window.name = 'John';
+
+sayHello(); // Hello, John
+```
+
+Trong ví dụ này, khi `sayHello()` được gọi, this được thiết lập thành `window` và `name` được lấy từ `window.name`.
+
+#### 3. Khi sử dụng phương thức `call()` hoặc `apply()`, this được thiết lập thành đối tượng được truyền vào làm tham số đầu tiên:
+
+```js
+function sayHello() {
+  console.log('Hello, ' + this.name);
+}
+
+const person = {
+  name: 'John'
+};
+
+sayHello.call(person); // Hello, John
+```
+
+Trong ví dụ này, khi `call()` được sử dụng để gọi `sayHello()` và truyền vào person làm tham số đầu tiên, `this` được thiết lập thành person.
+
+#### 4. Khi sử dụng hàm arrow, `this` được liên kết với ngữ cảnh của hàm đó, tức là nó được thiết lập từ hàm bao bọc nó:
+
+```js
+const person = {
+  name: 'John',
+  sayHello: () => {
+    console.log('Hello, ' + this.name);
+  }
+};
+
+person.sayHello(); // Hello, undefined
+```
+
+Trong ví dụ này, `this` không được thiết lập thành person, mà là từ hàm bao bọc nó. Do đó, `this.name` trả về `undefined`.
+
+Trong ngữ cảnh của một hàm hay phương thức, giá trị của this có thể thay đổi tùy vào cách hàm hay phương thức đó được gọi.
+
+[[↑] Back to top](#table-of-contents)
+
+## 🧠 Explain Bind Call method in Javascript.
+
+> Trong JavaScript, `bind()`, `call()`, `apply()` đều là các phương thức dùng để thay đổi `context (ngữ cảnh)` và được sử dụng để thiết lập giá trị  `this` của một hàm. Tuy nhiên, cách thực hiện và cách sử dụng của chúng khác nhau như sau:
+
+#### 1. Phương thức `call()`: Sử dụng phương thức `call()` để gọi hàm và thiết lập giá trị `this` trong hàm. Giá trị của `this` được truyền vào làm tham số đầu tiên của phương thức `call()`, còn các tham số tiếp theo là các tham số của hàm được gọi.
+
+```js
 function.call(thisArg, arg1, arg2, ...)
 ```````
 
@@ -25,7 +96,7 @@ function.call(thisArg, arg1, arg2, ...)
 
 Ví dụ:
 
-```javascript
+```js
 const person1 = { name: 'Alice' };
 const person2 = { name: 'Bob' };
 
@@ -36,9 +107,9 @@ function greet() {
 greet.call(person1); // Hello, Alice
 greet.call(person2); // Hello, Bob
 ```
-2. `bind()`: phương thức này cho phép tạo ra một phiên bản mới của hàm, với context đã được thiết lập sẵn. Cú pháp của bind() như sau:
+#### 2. Phương thức `bind()`: Sử dụng phương thức `bind()` để tạo ra một hàm mới với giá trị `this` được thiết lập sẵn. Phương thức `bind()` trả về một hàm mới, không gọi hàm đó ngay lập tức, mà chỉ trả về một tham chiếu đến hàm mới đó. Khi hàm mới được gọi, giá trị this được thiết lập sẵn theo giá trị đã được đặt trong phương thức bind(), còn các tham số sẽ được truyền vào hàm khi hàm mới được gọi.
 
-```javascript
+```js
 function.bind(thisArg, arg1, arg2, ...)
 `````
 
@@ -48,7 +119,7 @@ function.bind(thisArg, arg1, arg2, ...)
 
 Ví dụ:
 
-```javascript
+```js
 const person1 = { name: 'Alice' };
 const person2 = { name: 'Bob' };
 
@@ -63,11 +134,49 @@ greetPerson1(); // Hello, Alice
 greetPerson2(); // Hello, Bob
 ```
 
-Tóm lại, `call()` được sử dụng để gọi hàm và thiết lập context ngay lúc đó, trong khi `bind()` được sử dụng để tạo ra một phiên bản mới của hàm với context đã được thiết lập sẵn.
+```js
+function greet(greeting, name) {
+    console.log(`${greeting}, ${name}! My name is ${this.name}.`);
+}
+
+const person = {
+    name: 'John'
+};
+
+const greetPerson = greet.bind(person, 'Hello');
+greetPerson('Mary'); // Hello, Mary! My name is John.
+```
+Trong ví dụ này, phương thức `bind()` được sử dụng để tạo ra một hàm mới greetPerson với giá trị this được thiết lập sẵn là đối tượng person. Khi hàm `greetPerson()` được gọi, giá trị `this`
+
+#### 3. Phương thức `apply()`:Sử dụng phương thức `apply()` để gọi hàm và thiết lập giá trị `this` trong hàm. Giá trị của `this` được truyền vào làm tham số đầu tiên của phương thức `apply()`, còn tham số thứ hai là một mảng các tham số của hàm được gọi.
+
+Ví dụ:
+
+```js
+function greet(greeting, name) {
+  console.log(`${greeting}, ${name}! My name is ${this.name}.`);
+}
+
+const person = {
+  name: 'John'
+};
+
+greet.apply(person, ['Hello', 'Mary']); // Hello, Mary! My name is John.
+```
+---
+> Notes:<br/>
+> - Tóm lại, `call()`, `apply()` được sử dụng để gọi hàm và thiết lập context ngay lúc đó, trong khi `bind()` được sử dụng để tạo ra một phiên bản mới của hàm với context đã được thiết lập sẵn.
+> <br/><br/>
+> - Tham số truyền vào: Trong phương thức `call()`, các tham số của hàm được gọi được truyền vào theo cách riêng biệt, trong khi đó, trong phương thức `apply()`, các tham số được truyền vào dưới dạng một mảng.
+> <br/><br/>
+> - Hiệu suất: Phương thức call() có hiệu suất tốt hơn so với phương thức apply(). Do phương thức call() truyền các tham số một cách riêng biệt nên nó nhanh hơn khi xử lý các tham số, trong khi phương thức apply() phải xử lý một mảng các tham số.
+> <br/><br/>
+> - Sử dụng: Phương thức `call()` thường được sử dụng khi số lượng tham số được truyền vào hàm là biết trước, còn phương thức `apply()` thường được sử dụng khi số lượng tham số là không biết trước và được lưu trữ trong một mảng.
+> 
 
 [[↑] Back to top](#table-of-contents)
 
->## Explain Cache-control.
+## 🧠 Explain Cache-control.
 
 Cache-Control là một trường trong tiêu đề HTTP được sử dụng để kiểm soát bộ nhớ cache của trình duyệt hoặc proxy. Nó xác định cách thức mà các trang web được lưu trữ và sử dụng trong bộ nhớ đệm (cache) của các máy khách và proxy.
 
@@ -83,7 +192,7 @@ Các giá trị này có thể được sử dụng độc lập hoặc kết h�
 
 [[↑] Back to top](#table-of-contents)
 
->## Explain HSTS
+## 🧠 Explain HSTS
 
 `HSTS` là viết tắt của "HTTP Strict Transport Security". Đây là một chính sách bảo mật được sử dụng trên các trình duyệt web để đảm bảo rằng các kết nối truy cập trang web của người dùng luôn được mã hóa và được gửi qua một kênh an toàn.
 
@@ -93,7 +202,7 @@ HSTS được sử dụng để bảo vệ truyền thông trang web khỏi các
 
 [[↑] Back to top](#table-of-contents)
 
-> ## Explain HTTPS
+## 🧠 Explain HTTPS
 
 `HTTPS` là viết tắt của "Hypertext Transfer Protocol Secure". Đây là một phiên bản bảo mật của giao thức HTTP, được sử dụng để truyền tải dữ liệu giữa máy tính và máy chủ trên mạng internet.
 
@@ -106,5 +215,76 @@ Khi sử dụng HTTPS, dữ liệu được mã hóa trước khi được truy�
 `SSL` sử dụng một cơ chế mã hóa để mã hóa dữ liệu trước khi truyền qua mạng. Khi máy tính của bạn gửi yêu cầu đến một trang web được bảo vệ bằng SSL, máy chủ sẽ gửi một chứng chỉ SSL để xác minh tính hợp lệ của trang web. Sau khi xác minh tính hợp lệ của chứng chỉ SSL, máy tính của bạn và máy chủ sẽ thiết lập một kết nối an toàn để truyền tải dữ liệu giữa chúng.
 
 `SSL` đã được thay thế bởi `TLS` (Transport Layer Security), nhưng thuật ngữ SSL vẫn được sử dụng phổ biến để chỉ đến các giao thức bảo mật được sử dụng để bảo vệ dữ liệu truyền tải trên mạng.
+
+[[↑] Back to top](#table-of-contents)
+
+## 🧠 Explain Truly & Faulty
+
+`Truly` và `faulty` là các giá trị boolean trong JavaScript, có ý nghĩa tương ứng với `true` và `false`.
+
+Trong JavaScript, các giá trị `truly` là các giá trị được xem là `true` khi được sử dụng trong một phép so sánh boolean. Các giá trị `truly`bao gồm:
+
+>- Giá trị boolean `true`
+>- Các chuỗi khác rỗng `(ví dụ: "hello", "123")`
+>- Số khác `0 (ví dụ: 42, -3.14)`
+>- Một đối tượng được xem là `truthy` - tức là, một đối tượng không phải là `null, undefined, false, 0` hoặc rỗng chuỗi.
+
+Ví dụ, các biểu thức sau đây đều trả về giá trị boolean `true`:
+
+```js
+Boolean(true); // true
+Boolean("hello"); // true
+Boolean(42); // true
+Boolean({}); // true
+```
+Ngược lại, các giá trị `faulty` là các giá trị được xem là `false` khi được sử dụng trong một phép so sánh boolean. Các giá trị `faulty` bao gồm:
+
+>- Giá trị boolean `false`
+>- Chuỗi rỗng `""`
+>- Số `0`
+>- Giá trị `null` hoặc `undefined`
+>- Một đối tượng được xem là `falsy` - tức là, một đối tượng có giá trị là `null` hoặc `undefined`.
+> 
+Ví dụ, các biểu thức sau đây đều trả về giá trị boolean false:
+
+```js
+Boolean(false); // false
+Boolean(""); // false
+Boolean(0); // false
+Boolean(null); // false
+```
+Lưu ý rằng các giá trị khác false hoặc rỗng chuỗi có thể được coi là `truly` hoặc `faulty` tùy thuộc vào ngữ cảnh sử dụng của chúng trong phép so sánh boolean.
+
+### ứng dụng
+
+Các giá trị `truly` và `faulty` trong JavaScript thường được sử dụng trong các biểu thức logic và điều kiện trong chương trình.
+
+Ví dụ, trong một biểu thức logic đơn giản, chúng ta có thể sử dụng các giá trị `truly` và `faulty` để kiểm tra xem một biến có giá trị hay không:
+
+```javascript
+var name = "John";
+if (name) {
+console.log("Hello, " + name); // Hiển thị "Hello, John"
+} else {
+console.log("Please enter your name");
+}
+```
+
+Trong ví dụ trên, biến name có giá trị là "John", được xem là một giá trị "truly", do đó điều kiện if được đánh giá là đúng và câu lệnh trong khối if được thực thi.
+
+Một ví dụ khác, chúng ta có thể sử dụng các giá trị "faulty" để kiểm tra xem một biến có giá trị hay không:
+
+```js
+var age;
+if (age) {
+console.log("Your age is " + age);
+} else {
+console.log("Please enter your age"); // Hiển thị "Please enter your age"
+}
+```
+
+Trong ví dụ trên, biến age không được gán giá trị nào, do đó nó được xem là một giá trị "faulty". Do đó, điều kiện if được đánh giá là sai và câu lệnh trong khối else được thực thi.
+
+Các giá trị "truly" và "faulty" cũng được sử dụng để kiểm tra tính đúng đắn của dữ liệu được nhập vào từ người dùng hoặc được trả về từ các API. Nếu một giá trị là "truly", nó được xem là dữ liệu hợp lệ và có thể được sử dụng, ngược lại, nếu nó là "faulty", thì nó được xem là dữ liệu không hợp lệ và cần được xử lý hoặc báo lỗi.
 
 [[↑] Back to top](#table-of-contents)
