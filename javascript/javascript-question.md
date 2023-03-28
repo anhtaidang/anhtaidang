@@ -34,7 +34,7 @@ const person = {
 person.sayHello(); // Hello, John
 ```
 
-Trong ví dụ này, khi `sayHello()` được gọi trên đối tượng person, this được thiết lập thành person.
+Trong ví dụ này, khi `sayHello()` được gọi trên đối tượng `person`, `this` được thiết lập thành `person`.
 
 #### 2. Khi gọi hàm không được gọi trên đối tượng, `this` được thiết lập thành đối tượng toàn cục (`window` trong trình duyệt hoặc `global` trong Node.js):
 
