@@ -15,7 +15,7 @@
 - [Explain Truly & Faulty](#-explain-truly--faulty)
 - [Explain difference between `.forEach` & `.map` - `.find()`, `.findIndex()` & `.filter()`](#-explain-difference-between-foreach--map---find-findindex--filter)
 - [Explain Closure in Javascript](#-explain-closure-in-javascript)
-- [BEM là gì? Quy ước đặt tên CSS theo tiêu chuẩn của BEM](#-bem-l-g-quy-c-t-tn-css-theo-tiu-chun-ca-bem)
+- [Explain BEM? Naming standard CSS follow BEM](#-explain-bem-naming-standard-css-follow-bem)
 ---
 ## 🧠 Explain How to `this` work in Javascript.
 Trong JavaScript, `this` là một từ khóa đặc biệt được sử dụng để tham chiếu đến đối tượng hiện tại, tức là đối tượng phương thức hoặc thuộc tính được gọi.
@@ -438,7 +438,7 @@ helloBob(); // "Hello, Bob!"
 
 [[↑] Back to top](#table-of-contents)
 
-## 🧠 BEM là gì? Quy ước đặt tên CSS theo tiêu chuẩn của BEM
+## 🧠 Explain BEM? Naming standard CSS follow BEM
 
 ### BEM là gì?
 BEM là viết tắt của cụm `Block – Element – Modifier`, là tiêu chuẩn quy ước đặt tên cho các tên lớp CSS. BEM giúp việc lập trình Front-end trở nên dễ hiểu, dễ đọc hơn, dễ làm việc và dễ mở rộng cũng như bảo trì khi làm việc với CSS.
