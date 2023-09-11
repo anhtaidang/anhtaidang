@@ -18,6 +18,7 @@
 - [Explain Promise in Javascript](#-explain-promise-in-javascript)
 - [Explain Callback in Javascript](#-explain-callback-in-javascript)
 - [Explain Hoisting in Javascript](#-explain-hoisting-in-javascript)
+- [Explain Scope in Javascript](#-explain-hoisting-in-javascript)
 - [Explain Design Pattern](#-explain-design-pattern)
 - [Explain Cookies Session Storage và Local Storage](#-explain-cookies-session-storage-v-local-storage)
 - [Explain BEM? Naming standard CSS follow BEM](#-explain-bem-naming-standard-css-follow-bem)
@@ -550,6 +551,41 @@ Sử dụng `let` và `const` thay thế cho `var` cho biến để tránh một
 > Tuy nhiên, hoisting cũng có một số nhược điểm, bao gồm:
 > - Có thể gây hiểu lầm: Hoisting có thể gây hiểu lầm nếu bạn không hiểu cách thức hoạt động của nó.
 > - Có thể gây ra lỗi: Hoisting có thể gây ra lỗi nếu bạn sử dụng biến hoặc hàm theo cách không mong muốn.
+
+[[↑] Back to top](#table-of-contents)
+
+## 🧠 Explain Scope in Javascript
+Scope (Phạm vi) trong JavaScript là một khái niệm quan trọng định nghĩa phạm vi truy cập của biến, hàm, và các đối tượng khác trong mã nguồn JavaScript.
+Có hai loại phạm vi (scope) trong JavaScript:
+
+**1.Phạm vi Toàn cục (Global Scope):**
+- Biến và hàm được khai báo ở mức toàn cục có phạm vi truy cập toàn bộ mã nguồn JavaScript.
+- Các biến và hàm ở mức toàn cục có thể truy cập từ bất kỳ đâu trong mã nguồn.
+```javascript
+var globalVar = 10;
+
+function globalFunction() {
+  console.log(globalVar);
+}
+```
+
+**2.Phạm vi Cục bộ (Local Scope):**
+- Biến và hàm được khai báo trong một hàm hoặc một khối mã (block) có phạm vi cục bộ.
+- Các biến và hàm ở mức cục bộ chỉ có thể truy cập từ bên trong hàm hoặc khối mã trong đó chúng được khai báo.
+```javascript
+function localFunction() {
+  var localVar = 20;
+  console.log(localVar);
+}
+```
+
+> Một số quy tắc quan trọng về scope trong JavaScript:
+>- Biến được tạo bên trong một hàm có phạm vi chỉ tồn tại trong hàm đó (scope chaining).
+>- Biến cùng tên ở trong một hàm và ở mức toàn cục, biến ở mức cục bộ sẽ được ưu tiên khi truy cập trong hàm đó.
+>- Các hàm có thể truy cập các biến ở mức toàn cục, nhưng các biến ở mức cục bộ của một hàm không thể truy cập từ các hàm khác.
+>- JavaScript sử dụng "lexical scope" (scope dựa trên vị trí mã nguồn) để xác định phạm vi của biến và hàm.
+
+
 
 [[↑] Back to top](#table-of-contents)
 

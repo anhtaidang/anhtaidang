@@ -9,6 +9,7 @@
 - [Explain Virtual DOM](#-explain-virtual-dom)
 - [Explain Hooks in ReactJS](#-explain-hooks-in-reactjs)
 - [Explain `data-` attribute in DOM HTML](#-explain-data--attribute-in-dom-html)
+- [Explain someway to Optimize Refactor Performance in React](#-explain-someway-to-optimize-refactor-performance-in-react)
 - [Explain useEffect vs useLayoutEffect](#-explain-useeffect-vs-uselayouteffect)
 
 ---
@@ -81,6 +82,49 @@ console.log(userId); // "123"
 console.log(username); // "john_doe"
 console.log(email); // "john@example.com"
 ```
+[[↑] Back to top](#table-of-contents)
+
+## 🧠 Explain someway to Optimize Refactor Performance in React
+Dưới đây là một số cách tối ưu khi sử dụng ReactJS để làm cho ứng dụng React của bạn chạy nhanh hơn và tiêu tốn ít tài nguyên hơn:
+
+**1. Sử dụng React.memo và PureComponent:**
+- React cung cấp React.memo và PureComponent để tối ưu hóa việc render lại các thành phần. Điều này giúp tránh việc render lại không cần thiết khi props hoặc state không thay đổi.
+
+**2. Sử dụng Keys duy nhất:**
+- Đảm bảo mỗi phần tử trong danh sách có một key duy nhất để giúp React xác định các sự thay đổi hiệu quả hơn khi danh sách được cập nhật.
+
+**3.Tách thành phần nhỏ hơn:**
+- Chia thành phần lớn thành các thành phần nhỏ hơn và tái sử dụng chúng. Điều này giúp làm giảm độ phức tạp của mã và giúp quản lý state dễ dàng hơn.
+
+**4.Memoization:**
+- Sử dụng memoization để lưu trữ kết quả của các hàm tính toán phức tạp để tránh tính toán lại khi các đầu vào không thay đổi.
+
+**5.Sử dụng Thư viện Thứ ba cần thiết lựa chọn:**
+- Sử dụng các thư viện bên ngoài như reselect để tối ưu hóa chọn lọc dữ liệu từ store Redux hoặc bất kỳ thư viện nào phù hợp với nhu cầu của bạn.
+
+**6.Code Splitting:**
+- Sử dụng code splitting để tải các phần của ứng dụng khi cần thiết thay vì tải tất cả mã nguồn cùng lúc. Điều này giúp giảm thời gian tải và tải nhẹ ứng dụng.
+
+**7.Lazy Loading:**
+- Sử dụng `React.lazy` và `Suspense` để tải lười (lazy load) các thành phần khi chúng cần được hiển thị, giúp giảm thời gian tải trang ban đầu.
+
+**8.Memoization và Caching dữ liệu:**
+- Sử dụng memoization và caching để lưu trữ và quản lý dữ liệu từ API hoặc dữ liệu có thể được chia sẻ giữa các thành phần.
+
+**8.Profiler:**
+- Sử dụng React Profiler để theo dõi hiệu suất ứng dụng và tìm ra các vấn đề có thể tối ưu hóa.
+
+**9.Server-Side Rendering (SSR):**
+- Sử dụng Server-Side Rendering để cải thiện tốc độ tải trang ban đầu và SEO.
+
+**10.Thực hành Làm sạch Component (Component Cleanup):**
+- Đảm bảo bạn dọn dẹp các tài nguyên không cần thiết như các sự kiện đăng ký, kết nối WebSocket khi không cần sử dụng nữa.
+
+**11.Kiểm tra sự thay đổi với `shouldComponentUpdate` hoặc `React.memo`:**
+- Sử dụng `shouldComponentUpdate` hoặc `React.memo` để kiểm tra xem một thành phần có cần render lại hay không dựa trên các điều kiện nhất định.
+
+Tối ưu hóa ứng dụng React là một quá trình liên tục và cần kiên nhẫn. Hãy sử dụng công cụ phân tích hiệu suất và kiểm tra thường xuyên để xác định và giải quyết các vấn đề về hiệu suất.
+
 
 [[↑] Back to top](#table-of-contents)
 
