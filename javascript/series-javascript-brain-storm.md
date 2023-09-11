@@ -1,5 +1,5 @@
 ---
-<h1 align="center">JavaScript Questions</h1>
+<h1 align="center">Series JavaScript Brainstorm</h1>
 
 #### Made by <a href="https://www.facebook.com/anhtaidang.developer">anhtaidang</a>
 
@@ -15,6 +15,10 @@
 - [Explain Truly & Faulty](#-explain-truly--faulty)
 - [Explain difference between `.forEach` & `.map` - `.find()`, `.findIndex()` & `.filter()`](#-explain-difference-between-foreach--map---find-findindex--filter)
 - [Explain Closure in Javascript](#-explain-closure-in-javascript)
+- [Explain Promise in Javascript](#-explain-promise-in-javascript)
+- [Explain Callback in Javascript](#-explain-callback-in-javascript)
+- [Explain Hoisting in Javascript](#-explain-hoisting-in-javascript)
+- [Explain Design Pattern](#-explain-design-pattern)
 - [Explain BEM? Naming standard CSS follow BEM](#-explain-bem-naming-standard-css-follow-bem)
 ---
 ## 🧠 Explain How to `this` work in Javascript.
@@ -435,6 +439,141 @@ helloBob(); // "Hello, Bob!"
 > - Closure giúp cho các biến và hàm được sử dụng lại và tái sử dụng một cách dễ dàng, làm cho mã JavaScript trở nên dễ đọc và dễ bảo trì hơn.
 > - Việc sử dụng closure cần được cẩn thận để tránh gây ra các vấn đề về hiệu suất và quản lý bộ nhớ, do closure giữ các biến trong bộ nhớ, dẫn đến tiêu tốn bộ nhớ và tăng thời gian hoạt động của chương trình.
 > - Closure là một tính năng quan trọng của JavaScript và được sử dụng rộng rãi trong nhiều thư viện và khung làm việc của JavaScript.
+
+[[↑] Back to top](#table-of-contents)
+
+### 🧠 Explain Promise in Javascript
+Promise trong JavaScript là một đối tượng được sử dụng để xử lý các tác vụ bất đồng bộ. Nó là một cơ chế để quản lý và kiểm soát các hoạt động không đồng bộ như gọi API, tải tệp, truy vấn cơ sở dữ liệu, và các hoạt động khác mà có thể mất thời gian để hoàn thành.
+
+Promise có ba trạng thái chính:
+
+<b>1. Pending (Chờ)</b>: Trạng thái ban đầu khi một Promise được tạo. Tại thời điểm này, tác vụ bất đồng bộ chưa hoàn thành.
+
+<b>2.Resolved - Fulfilled (Thành công)</b>: Trạng thái này xảy ra khi tác vụ bất đồng bộ hoàn thành thành công. Dữ liệu kết quả của tác vụ sẽ được trả về.
+
+<b>3. Rejected (Từ chối)</b>: Trạng thái này xảy ra khi tác vụ bất đồng bộ gặp lỗi hoặc không thể hoàn thành. Một lỗi (error) sẽ được trả về.
+
+Promise có cú pháp như sau:
+
+```javascript
+const myPromise = new Promise((resolve, reject) => {
+  // Xử lý tác vụ bất đồng bộ ở đây
+  if (/* tác vụ thành công */) {
+    resolve("Kết quả thành công");
+  } else {
+    reject("Lỗi xảy ra");
+  }
+});
+
+myPromise
+  .then((result) => {
+    console.log("Thành công: " + result);
+  })
+  .catch((error) => {
+    console.error("Lỗi: " + error);
+  });
+```
+
+Trong ví dụ trên, `myPromise` là một Promise. Nó có thể chuyển từ trạng thái "Chờ" sang "Thành công" bằng cách sử dụng `resolve`, hoặc sang trạng thái "Từ chối" bằng cách sử dụng `reject`. Sau đó, bạn có thể sử dụng `.then()` để xử lý kết quả thành công hoặc `.catch()` để xử lý lỗi.
+
+Promise giúp mã nguồn xử lý các tác vụ bất đồng bộ trở nên dễ đọc hơn và quản lý tốt hơn, bởi vì nó loại bỏ sự lồng ghép (nesting) nhiều callback và giúp tạo ra một luồng xử lý tuyến tính hơn.
+
+[[↑] Back to top](#table-of-contents)
+
+## 🧠 Explain Callback in Javascript
+
+Callback trong JavaScript là một hàm (function) được truyền làm tham số cho một hàm khác và được gọi sau khi hàm đó hoàn thành công việc của nó.
+
+Callback thường được sử dụng để xử lý các tác vụ bất đồng bộ, như đọc/ghi tệp, gọi API, hoặc xử lý sự kiện, mà có thể mất thời gian để hoàn thành.<br />
+Callback giúp đảm bảo rằng mã nguồn không bị chặn (blocked) và có thể tiếp tục thực thi trong khi tác vụ bất đồng bộ đang chạy.<br />
+Callback có thể được truyền dưới dạng hàm nặc danh (anonymous function) hoặc hàm đã được định nghĩa trước, tùy thuộc vào tình huống cụ thể.<br />
+Callback là một cơ chế quan trọng trong lập trình JavaScript và được sử dụng rộng rãi để xử lý các tác vụ không đồng bộ.
+
+
+
+```javascript
+function fetchData(callback) {
+  // Giả lập việc gọi API bất đồng bộ
+  setTimeout(() => {
+    const data = "Dữ liệu từ máy chủ";
+    callback(data); // Gọi callback khi tác vụ hoàn thành
+  }, 1000);
+}
+
+function processData(data) {
+  console.log("Dữ liệu đã xử lý: " + data);
+}
+
+fetchData(processData); // Truyền hàm processData làm callback
+
+```
+
+Trong ví dụ này, `fetchData` là một hàm có nhiệm vụ giả lập việc gọi API bất đồng bộ và sau đó gọi callback `processData` khi tác vụ hoàn thành.
+
+[[↑] Back to top](#table-of-contents)
+
+## 🧠 Explain Hoisting in Javascript
+
+Hoisting là một cơ chế của JavaScript trong đó các biến và hàm được khai báo được di chuyển lên đầu phạm vi hiện tại của chúng.<br/> 
+Điều này có nghĩa là các biến và hàm có thể được sử dụng ngay cả khi chúng được khai báo sau khi chúng được sử dụng.
+
+Cụ thể, hoisting có các đặc điểm sau:
+**1. Biến được khai báo với var**: Khi bạn sử dụng từ khóa var để khai báo biến, biến đó sẽ được nâng lên (hoisted) lên đầu phạm vi của nó, tức là nó được đưa lên phía trên mọi mã nguồn khác trong phạm vi đó.
+
+Ví dụ:
+```javascript
+console.log(x); // undefined
+var x = 5;
+```
+
+Trong ví dụ trên, biến `x` được nâng lên đầu phạm vi của nó và có giá trị `undefined` khi bạn cố gắng truy cập nó trước khi gán giá trị.
+
+**2. Hàm được định nghĩa với function**: Các hàm được định nghĩa bằng từ khóa `function` cũng được nâng lên lên đầu phạm vi của nó, nghĩa là bạn có thể gọi hàm trước khi nó được định nghĩa trong mã nguồn.
+
+Ví dụ:
+```javascript
+myFunction(); // "Hello, world!"
+
+function myFunction() {
+  console.log("Hello, world!");
+}
+```
+
+Tuy hoisting có tính năng này, tuy nhiên, khuyến cáo là nên khai báo biến và định nghĩa hàm trước khi sử dụng để tạo mã nguồn dễ đọc và hiểu hơn.<br/>
+Sử dụng `let` và `const` thay thế cho `var` cho biến để tránh một số lỗi logic liên quan đến hoisting, và sử dụng các quy tắc tốt trong việc đặt thứ tự khai báo biến và hàm trong mã nguồn.
+
+> Hoisting có một số ưu điểm, bao gồm:
+> - Giúp code dễ đọc và dễ hiểu hơn: Hoisting cho phép bạn khai báo các biến và hàm ở bất cứ đâu trong phạm vi hiện tại của chúng. Điều này giúp code dễ đọc và dễ hiểu hơn.
+> - Giúp tránh lỗi: Hoisting giúp tránh lỗi do sử dụng biến hoặc hàm trước khi chúng được khai báo.
+
+> Tuy nhiên, hoisting cũng có một số nhược điểm, bao gồm:
+> - Có thể gây hiểu lầm: Hoisting có thể gây hiểu lầm nếu bạn không hiểu cách thức hoạt động của nó.
+> - Có thể gây ra lỗi: Hoisting có thể gây ra lỗi nếu bạn sử dụng biến hoặc hàm theo cách không mong muốn.
+
+[[↑] Back to top](#table-of-contents)
+
+## 🧠 Explain Design Pattern
+
+
+Design pattern là một kỹ thuật giải pháp chung cho một vấn đề chung trong lập trình. Các design pattern được mô tả dưới dạng các mẫu code có thể được sử dụng lại trong các ứng dụng khác nhau.
+
+Design Pattern thường chia thành các loại cơ bản sau:
+
+<b>1. Creational Patterns (Mẫu tạo đối tượng)</b>: Loại mẫu này liên quan đến việc tạo ra đối tượng. Các mẫu trong loại này giúp kiểm soát quá trình tạo đối tượng và đảm bảo rằng mã nguồn dễ mở rộng và bảo trì. Ví dụ: Singleton, Factory, Builder.
+
+<b>2. Structural Patterns (Mẫu cấu trúc)</b>: Loại mẫu này tập trung vào cách các đối tượng được kết hợp lại để tạo ra các cấu trúc lớn hơn. Các mẫu trong loại này giúp bạn tạo ra các cấu trúc phức tạp bằng cách kết hợp các đối tượng một cách hiệu quả. Ví dụ: Adapter, Composite, Proxy.
+
+<b>3. Behavioral Patterns (Mẫu hành vi)</b>: Loại mẫu này liên quan đến cách các đối tượng tương tác và trao đổi thông tin với nhau. Các mẫu trong loại này giúp bạn quản lý các mẫu tương tác phức tạp trong mã nguồn. Ví dụ: Observer, Strategy, Command.
+
+Một số ví dụ cụ thể của Design Pattern bao gồm:
+
+- <b>Singleton Pattern</b>: Đảm bảo rằng một lớp chỉ có một thể hiện và cung cấp một điểm truy cập toàn cục đến nó.
+
+- <b>Factory Method Pattern</b>: Định nghĩa một giao diện cho việc tạo đối tượng, nhưng để các lớp con quyết định lớp cụ thể nào sẽ được tạo.
+
+- <b>Observer Pattern</b>: Định nghĩa một phương thức một-đến-nhiều giữa các đối tượng để thông báo về sự thay đổi trạng thái.
+
+Mục tiêu của Design Pattern là cung cấp một phong cách cấu trúc cho mã nguồn và giúp cải thiện tính hiệu quả, bảo trì và mở rộng của mã nguồn.
 
 [[↑] Back to top](#table-of-contents)
 
