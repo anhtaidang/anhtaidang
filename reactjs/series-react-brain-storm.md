@@ -8,6 +8,7 @@
 # Table of Contents
 - [Explain Virtual DOM](#-explain-virtual-dom)
 - [Explain Hooks in ReactJS](#-explain-hooks-in-reactjs)
+- [Explain `data-` attribute in DOM HTML](#-explain-data--attribute-in-dom-html)
 - [Explain useEffect vs useLayoutEffect](#-explain-useeffect-vs-uselayouteffect)
 
 ---
@@ -46,6 +47,40 @@ Dưới đây là một số hook quan trọng và phổ biến trong React:
 - `useEffectCleanup`: Được sử dụng để dọn dẹp các side effect khi thành phần bị unmount hoặc khi dependency thay đổi.
 
 Hooks giúp viết mã React trở nên ngắn gọn, dễ đọc, và dễ bảo trì hơn. Chúng giúp bạn tái sử dụng logic, tránh việc sử dụng class components (nếu bạn muốn), và giúp tối ưu hóa hiệu suất của ứng dụng React.
+
+[[↑] Back to top](#table-of-contents)
+
+## 🧠 Explain `data-` attribute in DOM HTML
+Thuộc tính data trong HTML là một thuộc tính cho phép bạn lưu trữ thêm thông tin hoặc dữ liệu trong DOM.
+Các thuộc tính data có thể được sử dụng bằng cách sử dụng tiền tố "data-" theo sau là tên tùy chỉnh.
+
+Dưới đây là một ví dụ về cách sử dụng thuộc tính data:
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Thuộc tính data trong HTML</title>
+</head>
+<body>
+    <div id="myElement" data-user-id="123" data-username="john_doe" data-email="john@example.com"></div>
+</body>
+</html>
+```
+
+Trong ví dụ này, chúng ta có một phần tử <div> với ba thuộc tính `data-` khác nhau: `data-user-id`, `data-username`, và `data-email`. Các thuộc tính này lưu trữ thông tin về người dùng liên quan đến phần tử này.
+
+Để truy cập dữ liệu trong các thuộc tính `data` này bằng JavaScript, bạn có thể sử dụng thuộc tính `dataset` của phần tử. Ví dụ:
+```javascript
+const myElement = document.getElementById("myElement");
+
+const userId = myElement.dataset.userId;
+const username = myElement.dataset.username;
+const email = myElement.dataset.email;
+
+console.log(userId); // "123"
+console.log(username); // "john_doe"
+console.log(email); // "john@example.com"
+```
 
 [[↑] Back to top](#table-of-contents)
 

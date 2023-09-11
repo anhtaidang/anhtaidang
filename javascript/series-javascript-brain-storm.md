@@ -19,6 +19,7 @@
 - [Explain Callback in Javascript](#-explain-callback-in-javascript)
 - [Explain Hoisting in Javascript](#-explain-hoisting-in-javascript)
 - [Explain Design Pattern](#-explain-design-pattern)
+- [Explain Cookies Session Storage và Local Storage](#-explain-cookies-session-storage-v-local-storage)
 - [Explain BEM? Naming standard CSS follow BEM](#-explain-bem-naming-standard-css-follow-bem)
 ---
 ## 🧠 Explain How to `this` work in Javascript.
@@ -574,6 +575,38 @@ Một số ví dụ cụ thể của Design Pattern bao gồm:
 - <b>Observer Pattern</b>: Định nghĩa một phương thức một-đến-nhiều giữa các đối tượng để thông báo về sự thay đổi trạng thái.
 
 Mục tiêu của Design Pattern là cung cấp một phong cách cấu trúc cho mã nguồn và giúp cải thiện tính hiệu quả, bảo trì và mở rộng của mã nguồn.
+
+[[↑] Back to top](#table-of-contents)
+
+## 🧠 Explain Cookies Session Storage và Local Storage
+Cookies, Session Storage và Local Storage là cách để lưu trữ dữ liệu trong trình duyệt web, nhưng chúng có sự khác nhau về cách hoạt động, thời gian tồn tại, và mục đích sử dụng:
+
+| Tính năng        | Cookies  | Session Storage  | Local Storage  |
+| -------          | --- | --- | --- |
+| Tính năng        | Máy chủ web | Bộ nhớ cục bộ của trình duyệt | Bộ nhớ cục bộ của trình duyệt |
+| Thời hạn sử dụng | Tùy chỉnh | Kết thúc phiên trình duyệt | Không giới hạn (trừ khi người dùng xóa thủ công) |
+| Kích thước       | 4kb | 5MB | 10MB |
+| Sự riêng tư      | Có thể truy cập được bởi các trang web khác | Có thể truy cập được bởi trang web hiện tại | Có thể truy cập được bởi trang web hiện tại |
+| Sử dụng          | Lưu trữ dữ liệu nhỏ, chẳng hạn như thông tin đăng nhập, trạng thái mua sắm, v.v. | Lưu trữ dữ liệu tạm thời, chẳng hạn như danh sách các mặt hàng đã xem | Lưu trữ dữ liệu lâu dài, chẳng hạn như danh sách yêu thích, cài đặt, v.v. |
+
+>1. Cookies:
+>- Cookies là một cách lưu trữ dữ liệu nhỏ dưới dạng chuỗi văn bản trên máy tính của người dùng.
+>- Cookies được gửi cùng với mỗi yêu cầu HTTP đến máy chủ, điều này có thể làm cho yêu cầu trở nên chậm nếu dữ liệu lớn.
+>- Cookies có thời gian sống và có thể được đặt để tồn tại trong một số ngày hoặc thậm chí là lâu hơn.
+>- Cookies thường được sử dụng để lưu trữ thông tin đăng nhập, theo dõi hoạt động trang web, và mục đích theo dõi.
+
+>2. Session Storage:
+>- Session Storage là một cách lưu trữ dữ liệu tương tự như Cookies, nhưng dữ liệu chỉ tồn tại trong suốt phiên làm việc của trình duyệt (session).
+>- Dữ liệu trong Session Storage không được gửi cùng với mỗi yêu cầu HTTP đến máy chủ và chỉ tồn tại trong cửa sổ hoặc tab trình duyệt mà bạn đang làm việc. Khi bạn đóng cửa sổ hoặc tab, dữ liệu sẽ bị xóa.
+
+>3. Local Storage:
+>- Local Storage cũng giống như Session Storage, nhưng dữ liệu tồn tại lâu hơn, vượt qua phiên làm việc và cả khi bạn tắt máy tính và mở lại trình duyệt.
+>- Dữ liệu trong Local Storage không bao giờ được tự động xóa, trừ khi bạn xóa nó bằng mã JavaScript hoặc bằng tay thông qua cài đặt trình duyệt.
+
+Lựa chọn giữa Cookies, Session Storage và Local Storage phụ thuộc vào mục đích sử dụng:
+- Sử dụng `Cookies` khi bạn cần lưu trữ thông tin trên máy chủ và truy cập từ mọi nơi, hoặc khi bạn cần lưu trữ thông tin trong thời gian dài hơn.
+- Sử dụng `Session Storage` khi bạn cần lưu trữ thông tin chỉ trong suốt phiên làm việc của trình duyệt, chẳng hạn như trong quá trình điều hướng giữa các trang web hoặc tab.
+- Sử dụng `Local Storage` khi bạn cần lưu trữ thông tin vượt qua phiên làm việc, ngay cả khi trình duyệt đã được tắt và mở lại.
 
 [[↑] Back to top](#table-of-contents)
 
