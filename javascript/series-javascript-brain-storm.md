@@ -23,6 +23,7 @@
 - [Explain callback, Promise, await async](#-explain-callback-promise-await-async)
 - [Explain Design Pattern](#-explain-design-pattern)
 - [Explain Mutable vs Immutable](#-explain-mutable-vs-immutable)
+- [Explain Call stack, Event queue, Event loop in Javscript](#-explain-mutable-vs-immutable)
 - [Explain Cookies Session Storage và Local Storage](#-explain-cookies-session-storage-v-local-storage)
 - [Explain BEM? Naming standard CSS follow BEM](#-explain-bem-naming-standard-css-follow-bem)
 ---
@@ -768,6 +769,54 @@ Trong trường hợp immutable, khi bạn thay đổi dữ liệu, bạn tạo 
 >- Immutable giúp tránh lỗi xử lý đồng thời (concurrency bugs) khi nhiều luồng hoặc tiến trình thay đổi dữ liệu.
 >- Immutable giúp bạn tạo ra bản sao của dữ liệu một cách an toàn để xử lý mà không ảnh hưởng đến dữ liệu gốc.
 >- Immutable thường được sử dụng trong các ngôn ngữ lập trình và thư viện phức tạp để làm cho quá trình xử lý và quản lý dữ liệu dễ dàng hơn và ít lỗi hơn.
+
+[[↑] Back to top](#table-of-contents)
+
+## 🧠 Explain Call stack, Event queue, Event loop in Javscript
+Trong JavaScript, Call Stack, Event Queue, và Event Loop là các phần quan trọng của quá trình thực thi mã nguồn JavaScript và xử lý sự kiện bất đồng bộ. Dưới đây là mô tả chi tiết về mỗi phần:
+
+**1.Call Stack (Ngăn xếp gọi hàm):**
+- Call Stack là một cấu trúc dữ liệu trong JavaScript được sử dụng để theo dõi thứ tự thực thi các hàm trong mã nguồn.
+- Mỗi khi một hàm được gọi, một khung (frame) của hàm đó được đẩy lên đỉnh của Call Stack, và khi hàm hoàn thành thì khung đó sẽ được loại bỏ.
+- Call Stack đảm bảo rằng các hàm được thực thi theo thứ tự theo nguyên tắc "Last In, First Out" (LIFO).
+```javascript
+function foo() {
+  console.log("Foo");
+  bar();
+}
+
+function bar() {
+  console.log("Bar");
+}
+
+foo();
+```
+Trong ví dụ này, Call Stack sẽ lưu trữ thứ tự thực thi của các hàm `foo` và `bar`.
+
+**2.Event Queue (Hàng đợi sự kiện):**
+- Event Queue là một cấu trúc dữ liệu được sử dụng để theo dõi các sự kiện bất đồng bộ và callback functions.
+- Khi một sự kiện bất đồng bộ hoàn thành hoặc một callback function được gọi, nó sẽ được đưa vào hàng đợi sự kiện.
+- Event Queue sử dụng cơ chế "First In, First Out" (FIFO), nghĩa là sự kiện hoặc callback function ở đầu hàng đợi sẽ được xử lý trước.
+```javascript
+setTimeout(function () {
+  console.log("Sự kiện bất đồng bộ");
+}, 1000);
+```
+
+Trong ví dụ này, sau khi thời gian đếm ngược 1 giây kết thúc, callback function sẽ được đưa vào Event Queue để thực thi.
+
+**3.Event Loop (Vòng lặp sự kiện):**
+- Event Loop là một thành phần quan trọng của JavaScript runtime environment. Nhiệm vụ của nó là liên tục kiểm tra Event Queue và kiểm tra xem nếu Call Stack trống (không có hàm nào đang thực thi), thì sự kiện hoặc callback function ở đầu hàng đợi sự kiện sẽ được đưa vào Call Stack để thực thi.
+- Event Loop đảm bảo rằng JavaScript có thể xử lý sự kiện bất đồng bộ mà không chặn mã nguồn chính.
+```javascript
+setTimeout(function () {
+  console.log("Sự kiện bất đồng bộ");
+}, 1000);
+```
+Sau khi thời gian đếm ngược kết thúc, Event Loop sẽ đưa callback function vào Call Stack để thực thi.
+
+> Tóm lại, Call Stack, Event Queue và Event Loop là các phần quan trọng trong JavaScript để quản lý thực thi mã nguồn đồng thời với xử lý sự kiện bất đồng bộ.
+
 
 [[↑] Back to top](#table-of-contents)
 

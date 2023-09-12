@@ -6,6 +6,7 @@
 ![logoJSpng](../assets/images/logoReactJS.webp)
 ---
 # Table of Contents
+- [Explain React Component Lifecycle](#-explain-react-component-lifecycle)
 - [Explain Virtual DOM](#-explain-virtual-dom)
 - [Explain Hooks in ReactJS](#-explain-hooks-in-reactjs)
 - [Explain `data-` attribute in DOM HTML](#-explain-data--attribute-in-dom-html)
@@ -13,6 +14,33 @@
 - [Explain useEffect vs useLayoutEffect](#-explain-useeffect-vs-uselayouteffect)
 
 ---
+## 🧠 Explain React Component Lifecycle
+>- Lifecycle của một React component là chu kỳ của component từ khi nó được tạo ra, hiển thị lên giao diện, cho đến khi nó bị hủy bỏ hoặc unmount.
+>- React đã giới thiệu một số phương thức vòng đời (lifecycle methods) để cho phép bạn can thiệp và xử lý logic tại các điểm khác nhau trong chu kỳ của component.
+
+![img.png](../assets/images/img.png)
+
+**1.Mounting (Khởi tạo):**
+- `constructor()`: Phương thức khởi tạo được gọi khi component được tạo ra. Bạn có thể sử dụng nó để thiết lập state ban đầu và bind các phương thức.
+static getDerivedStateFromProps(props, state): Phương thức này được gọi trước khi render và mỗi khi props thay đổi. Nó cho phép bạn cập nhật state dựa trên props mới.
+- `render()`: Phương thức này trả về JSX để hiển thị giao diện của component.
+
+**2.Updating (Cập nhật):**
+- `static getDerivedStateFromProps(props, state)`: Được gọi khi component đã được khởi tạo và mỗi khi props thay đổi. Tương tự như trong Mounting.
+shouldComponentUpdate(nextProps, nextState): Cho phép bạn quyết định xem component có cần được render lại khi props hoặc state thay đổi. Trả về true để render và false để ngăn cản render.
+- `render()`: Được gọi để render lại giao diện component.
+- `getSnapshotBeforeUpdate(prevProps, prevState)`: Được gọi trước khi component thực sự được cập nhật. Thường được sử dụng để lấy thông tin từ DOM (ví dụ: vị trí cuộn) trước khi nó bị thay đổi.
+- `componentDidUpdate(prevProps, prevState, snapshot)`: Được gọi sau khi component đã cập nhật. Thường được sử dụng để thực hiện các tác vụ sau cập nhật, chẳng hạn như gọi API hoặc cập nhật DOM.
+
+**3.Unmounting (Hủy bỏ):**
+- `componentWillUnmount()`: Được gọi trước khi component bị hủy bỏ hoặc unmount khỏi DOM. Thường được sử dụng để hủy các kết nối, ngắt các tài nguyên, hoặc xóa các thư viện khỏi bộ nhớ.
+
+> Ngoài các phương thức trên, React 16.3 đã giới thiệu một số phương thức vòng đời mới, bao gồm getDerivedStateFromProps và getSnapshotBeforeUpdate, và đã xóa bỏ một số phương thức cũ như componentWillMount, componentWillReceiveProps, và componentWillUpdate.
+> 
+> Lưu ý rằng React 16.3 trở đi, các phương thức vòng đời cũ đã bị deprecated và không nên được sử dụng. Thay vào đó, bạn nên sử dụng các phương thức vòng đời mới và hooks (nếu bạn đang sử dụng React 16.8 trở đi) để quản lý lifecycle của component.
+
+[[↑] Back to top](#table-of-contents)
+
 ## 🧠 Explain Virtual DOM.
 
 Virtual DOM (Document Object Model)
