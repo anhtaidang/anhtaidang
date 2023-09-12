@@ -11,8 +11,14 @@
 # Series Tech Brainstorm
 - <a href="https://github.com/anhtaidang/anhtaidang/blob/main/javascript/series-javascript-brain-storm.md" target="_blank"> 🧠 Javascript Brainstorm</a>
 - <a href="https://github.com/anhtaidang/anhtaidang/blob/main/reactjs/series-react-brain-storm.md" target="_blank"> 🧠 ReactJS - State Management Brainstorm</a>
+- <a href="https://github.com/anhtaidang/anhtaidang/blob/main/reactjs/series-react-brain-storm.md" target="_blank"> 🧠 NextJS (Comming soon) Brainstorm</a>
 ---
-📋 Languages
+<br/>
+<br/>
+
+📋 **Languages**
+
+---
 
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
@@ -23,7 +29,11 @@
 ![.Net](https://img.shields.io/badge/.NET-5C2D91?style=for-the-badge&logo=.net&logoColor=white)
 ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
 
-📚 Frameworks, Platforms and Libraries
+<br/>
+
+📚 **Frameworks, Platforms and Libraries**
+
+---
 
 ![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white)
 ![Yarn](https://img.shields.io/badge/yarn-%232C8EBB.svg?style=for-the-badge&logo=yarn&logoColor=white)
@@ -63,7 +73,11 @@
 ![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)
 ![Storybook](https://img.shields.io/badge/-Storybook-FF4785?style=for-the-badge&logo=storybook&logoColor=white)
 
-💻 IDEs/Editors
+<br/>
+
+💻 **IDEs/Editors**
+
+---
 
 ![WebStorm](https://img.shields.io/badge/webstorm-143?style=for-the-badge&logo=webstorm&logoColor=white&color=black)
 ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
