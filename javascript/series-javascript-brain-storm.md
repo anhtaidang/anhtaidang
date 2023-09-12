@@ -8,6 +8,7 @@
 # Table of Contents
 - [Explain How to `this` work in Javascript](#-explain-how-to-this-work-in-javascript)
 - [Explain Bind Call method in Javascript](#-explain-bind-call-method-in-javascript)
+- [Explain Some changes in ES6](#-explain-some-changes-in-es6)
 - [Explain `let`,`const`,`var` in Javascript](#-explain-letconstvar-in-javascript)
 - [Explain Cache-control](#-explain-cache-control)
 - [Explain HSTS](#-explain-hsts)
@@ -25,7 +26,8 @@
 - [Explain Mutable vs Immutable](#-explain-mutable-vs-immutable)
 - [Explain Call stack, Event queue, Event loop in Javscript](#-explain-mutable-vs-immutable)
 - [Explain Cookies Session Storage và Local Storage](#-explain-cookies-session-storage-v-local-storage)
-- [Explain BEM? Naming standard CSS follow BEM](#-explain-bem-naming-standard-css-follow-bem)
+- [Explain Compare Functional programming vs OOP](#-explain-compare-functional-programming-vs-oop)
+- [Explain Compare Put vs Post](#-explain-compare-put-vs-post)
 ---
 ## 🧠 Explain How to `this` work in Javascript.
 Trong JavaScript, `this` là một từ khóa đặc biệt được sử dụng để tham chiếu đến đối tượng hiện tại, tức là đối tượng phương thức hoặc thuộc tính được gọi.
@@ -189,6 +191,97 @@ greet.apply(person, ['Hello', 'Mary']); // Hello, Mary! My name is John.
 > <br/><br/>
 > - Sử dụng: Phương thức `call()` thường được sử dụng khi số lượng tham số được truyền vào hàm là biết trước, còn phương thức `apply()` thường được sử dụng khi số lượng tham số là không biết trước và được lưu trữ trong một mảng.
 > 
+
+[[↑] Back to top](#table-of-contents)
+
+## 🧠 Explain Some changes in ES6
+ES6 (ECMAScript 2015) đã đưa ra nhiều cải tiến quan trọng cho JavaScript, giúp làm cho ngôn ngữ này mạnh mẽ hơn và dễ đọc hơn.
+
+**1.Khai báo biến với let và const:**
+- `let` và `const` thay thế `var` trong việc khai báo biến.
+- `let` cho phép biến có phạm vi (scope) trong block {}. `const` tạo biến bất biến (immutable).
+```javascript
+let x = 5;
+const PI = 3.14159;
+```
+
+**2.Template Literals:**
+- Sử dụng template literals `(``)` để tạo chuỗi nhiều dòng và nhúng biểu thức vào chuỗi dễ dàng hơn.
+```javascript
+const name = 'John';
+const greeting = `Hello, ${name}!`;
+```
+
+**3.Arrow Functions:**
+- Arrow functions giúp viết hàm ngắn gọn hơn và giữ nguyên ngữ cảnh của this.
+```javascript
+const add = (a, b) => a + b;
+```
+
+**4.Default Parameters:**
+- Bạn có thể đặt giá trị mặc định cho các tham số hàm.
+```javascript
+function greet(name = 'Guest') {
+  console.log(`Hello, ${name}!`);
+}
+```
+
+**5.Destructuring Assignment:**
+- Destructuring assignment cho phép bạn trích xuất giá trị từ mảng hoặc đối tượng và gán chúng vào biến riêng lẻ.
+```javascript
+const [x, y] = [1, 2];
+const { firstName, lastName } = { firstName: 'John', lastName: 'Doe' };
+```
+
+**6.Classes:**
+- ES6 giới thiệu cú pháp định nghĩa lớp (class) giống với OOP.
+```javascript
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+  sayHello() {
+    console.log(`Hello, my name is ${this.name}`);
+  }
+}
+```
+
+**7.Import và Export:**
+- ES6 có mô-đun (module) cho phép bạn import và export mã từ các tệp khác nhau.
+```javascript
+// Trong tệp math.js
+export const add = (a, b) => a + b;
+
+// Trong tệp main.js
+import { add } from './math';
+```
+
+**8.Rest và Spread Operators:**
+- `...` (spread) cho phép bạn trải một mảng hoặc đối tượng thành các phần tử hoặc thuộc tính riêng lẻ.
+- Rest parameters (`...args`) cho phép bạn gom các tham số thành một mảng.
+```javascript
+const numbers = [1, 2, 3];
+const newArray = [...numbers, 4, 5];
+```
+
+**9.Promise:**
+- Promise giúp quản lý và xử lý bất đồng bộ (asynchronous) dễ dàng hơn.
+```javascript
+fetch('https://api.example.com/data')
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error(error));
+```
+
+**10.Map và Set:**
+- `Map` là một cấu trúc dữ liệu cho phép ánh xạ giữa các cặp khóa và giá trị.
+- `Set` là một cấu trúc dữ liệu không cho phép các giá trị trùng lặp.
+```javascript
+const map = new Map();
+map.set('key', 'value');
+
+const set = new Set([1, 2, 2, 3]);
+```
 
 [[↑] Back to top](#table-of-contents)
 
@@ -852,165 +945,42 @@ Lựa chọn giữa Cookies, Session Storage và Local Storage phụ thuộc và
 
 [[↑] Back to top](#table-of-contents)
 
-## 🧠 Explain BEM? Naming standard CSS follow BEM
+## 🧠 Explain Compare Functional programming vs OOP
+Functional Programming (FP) và Object-Oriented Programming (OOP) là hai phong cách lập trình khác nhau có cách tiếp cận và triển khai riêng biệt.
 
-### BEM là gì?
-BEM là viết tắt của cụm `Block – Element – Modifier`, là tiêu chuẩn quy ước đặt tên cho các tên lớp CSS. BEM giúp việc lập trình Front-end trở nên dễ hiểu, dễ đọc hơn, dễ làm việc và dễ mở rộng cũng như bảo trì khi làm việc với CSS.
-Việc đặt tên theo tiêu chuẩn giúp các lập trình viên frontend hiểu được đoạn code đó có nghĩa là gì, nó thực hiện nhiệm vụ gì? Từ đó những lập tình viên khác khi đọc code của họ cũng hiểu được bạn đang làm gì, từ đó dễ dàng phân tích, thay đổi và quản lý.
-
-### Tại sao nên dùng BEM?
-Đối với những dự án nhỏ thì BEM có thể chưa cần đến, tuy nhiên các dự án lớn và làm việc nhóm thì BEM rất quan trọng.
-- <b>Giúp cho team làm việc với nhau dễ dàng hơn</b>: Khi làm Teamwork với nhau, mỗi người đều sẽ có một cách đặt tên class riêng và sẽ bị conflict với nhau. Việc sử dụng BEM sẽ bị loại bỏ vấn đề này vì có cấu trúc rõ ràng và dễ dàng tuân thủ khi sử dụng.
-- <b>Modules</b>: Các class của mỗi block sẽ không bị ảnh hưởng gì bởi các yếu tố khác, vì thế bạn sẽ không cần quá lo CSS của class này sẽ gây ảnh hưởng đến class khác.
-- <b>Tái sử dụng lại</b>: Bạn có thể soạn các block riêng biệt và sử dụng lại chúng một cách thuận tiện và giảm số lượng code CSS.
-- <b>Cấu trúc</b>: BEM cung cấp cho CSS một cấu hình vững chắc, đơn giản và rất dễ hiểu.
-
-### Quy ước đặt tên của BEM
-
-```css
-.block {} /* Block */
-.block__element {} /* Element */
-.block--modifier {} /* Modifier */
-```
-<b>1. Block</b>: Là một thành phần của trang web hay ứng dụng đó, các thành phần của DOM cũng có thể là các block. Block ở đây thường là các thành phần header, body, content, footer. Ví dụ section td bên dưới tập hợp các block sau:
-- `.td__container` làm nhiệm vụ cân max width và padding left right.<br/>
-  `.td__inner` làm nhiệm vụ cân padding top bottom và điểm bám cho các element absolute. VD: chỉnh một button…<br/>
-  `.td__header` chứa Sub-title.<br/>
-  `.td__content` chứa Headline và Description.<br/>
-  `.td__footer` chứa button CTA.<br/>
-
-Các prefix của các class đều là td giúp chúng ta có thể nhận diện section khi muốn update mục tương ứng trong css.
-
-<b>2. Elements</b>: Là một thành phần của một block và sẽ không tồn tại độc lập mà không có block vì được đặt bên trong nó, và chúng phụ thuộc vào parent block của nó. Trong BEM, các phần tử được biểu thị bằng dấu gạch dưới kép `__`.
-- `.td__headline` là Text cỡ lớn. Style thường là H1 hoặc H2.<br/>
-  `.td__intro`, `.td__description` làm mô tả content.<br/>
-  `.td__image` chứa ảnh.<br/>
-  `.td__button` với style riêng cho button trong section này.<br/>
-
-<b>3. Modifers</b>: Được dùng để thao tác thay đổi cách hiển thị trên block hoặc phần tử. Ví dụ mình muốn tạo thêm một block `.block__elem` khác nữa và muốn làm nổi bật nó thì sẽ thêm một class `.block__elem--hightlight` để tạo sự khác biệt đó.
-
-### Lợi ích khi sử dụng BEM
-- Style của block không phụ thuộc vào các phần tử khác trên một trang, vì vậy bạn sẽ không bao giờ gặp vấn đề từ việc xếp tầng. Bạn cũng có thể chuyển các block từ dự án đã hoàn thành của mình sang các dự án mới.
-- Có thể tạo ra các block độc lập, xây dựng thành một thư viện các block để tái sử dụng chúng. Điều này sẽ giúp cho CSS của bạn trở nên hiệu quả hơn và làm giảm lượng code CSS mà bạn sẽ phải bảo trì.
-- BEM cung cấp cho code CSS của bạn một cấu trúc vững chắc mà vẫn đơn giản và dễ hiểu.
-
-### Quy tắc, cách sử dụng BEM trong Block, Element, Modifier
-<i>ĐỐI VỚI BLOCK</i>
-<h4><b>Quy tắc đặt tên</b></h3>
-- Tên của block có thể bao gồm các chữ cái Latinh, chữ số và cả dấu gạch ngang
-- Tạo CSS class: thêm một tiền tố ở phía trước. VD như: .block
-- Bất kỳ node DOM nào cũng có thể là một block nếu như nó có một class name 
-
-VD như: `<div class=”block”>…</div>`
-
-<h4><b>Cách sử dụng trong CSS</b></h4>
-- Chỉ sử dụng bộ chọn của class
-- Không dùng tên thẻ hoặc id
-- Không phụ thuộc vào các block/element trên 1 trang
-
-VD như: .block { color: #042; }
-
-<i>ĐỐI VỚI ELEMENT</i>
-<h4><b>Quy tắc đặt tên</b></h4>
-- Tên Element có thể bao gồm các chữ số, chữ cái Latinh, dấu gạch ngang, gạch dưới.
-- Tạo class CSS: tên block cộng với 2 dấu gạch dưới và tên Element.
-
-VD như: .block__elem
-
-- Bất kỳ một node DOM nào trong một block cũng đều có thể là một element
-- Trong một block nhất định, tất cả các element cũng đều bằng nhau về mặt ngữ nghĩa
-
-```html
-<div class=”block”>
-    …
-    <span class=”block__elem”> </span>
-</div>
-```
-
-<h4><b>Cách sử dụng trong CSS</b></h4>
-
-- Chỉ sử dụng được bộ chọn class
-- Không thể sử dụng tên thẻ hoặc id
-- Không phụ thuộc vào các block/ element trên các trang mạng khác
+>- FP thường được lựa chọn cho các ứng dụng cần tính toán và logic phức tạp, chẳng hạn như xử lý dữ liệu lớn hoặc trí tuệ nhân tạo.
+>- OOP thường được lựa chọn cho các ứng dụng cần mô hình hóa thế giới thực, chẳng hạn như ứng dụng web hoặc ứng dụng desktop.
 
 
-```css
-Nên: 
-    .block__elem { color: #042; }
-Không nên: 
-    .block .block__elem { color: #042; }
-    div.block__elem { color: #042; }
-```
 
-<i>ĐỐI VỚI MODIFIER</i>
-<h4><b>Quy tắc đặt tên</b></h4>
-- Tên của Modifier có thể gồm các chữ cái Latinh, dấu gạch ngang, chữ số và dấu gạch dưới
-- Tạo class CSS: tên của block hoặc element cộng hai dấu gạch ngang, cộng với tên của Modifier
-- Dấu cách trong các Modifier dài sẽ được thay thế bằng dấu gạch ngang.
+**1.Paradigm (Mô hình):**
+>- FP: FP là một mô hình lập trình dựa trên hàm. Trong FP, các hàm là thành phần cơ bản và thường được xem xét là "first-class citizens". Nó tập trung vào việc xử lý dữ liệu thông qua hàm và tránh các trạng thái thay đổi.
+>- OOP: OOP là một mô hình lập trình dựa trên đối tượng. Trong OOP, dữ liệu và hành vi được tổ chức thành các đối tượng, và trạng thái và hành vi của đối tượng tương tác với nhau thông qua phương thức.
 
+**2.State (Trạng thái):**
+>- FP: FP khuyến khích việc tránh trạng thái thay đổi. Dữ liệu được xem xét là không thay đổi (immutable), và bất kỳ thay đổi nào trên dữ liệu sẽ tạo ra một bản sao mới.
+>- OOP: OOP cho phép sử dụng trạng thái (state) của đối tượng. Đối tượng có thể duy trì trạng thái và thay đổi nó thông qua phương thức.
 
-```css
-.block–mod { }
-.block__elem–mod { }
-.block–color-black { }
-.block–color-red { }
-```
+**3.Encapsulation (Đóng gói):**
+>- FP: FP không có khái niệm về đóng gói. Dữ liệu và hàm không liên quan trực tiếp đến nhau.
+>- OOP: OOP khuyến khích việc đóng gói dữ liệu và hàm trong các đối tượng. Điều này giúp che dấu và bảo vệ dữ liệu khỏi sự truy cập trực tiếp từ bên ngoài.
 
-- Modifier là tên class mà bạn thêm vào node DOM block/ element
-- Tăng thêm các Modifier class vào các nhóm block/ element mà chúng ta cần sửa đổi và giữ lại class ban đầu của block/element đó.
+**4.Inheritance (Kế thừa):**
+>- FP: FP thường không sử dụng kế thừa. Thay vào đó, nó tập trung vào việc sử dụng hàm và composition để xây dựng các chức năng phức tạp.
+>- OOP: OOP hỗ trợ kế thừa, cho phép một lớp (class) kế thừa các thuộc tính và phương thức từ một lớp cha.
 
-VD như: <br/>
-```html
-Nên: 
-    <div class=”block block–mod”>…</div>
-    <div class=”block block–size-big block–shadow-yes”>…</div>
-Không nên: 
-    <div class=”block–mod”>…</div>
-```
+**5.Polymorphism (Đa hình):**
+>- FP: FP thường không sử dụng đa hình theo cách truyền thống như OOP. Thay vào đó, nó khuyến khích việc sử dụng hàm và phương thức chấp nhận tham số đa hình.
+>- OOP: OOP thường sử dụng đa hình để cho phép các đối tượng con triển khai các phương thức của đối tượng cha theo cách riêng biệt.
 
-<h4><b>Cách sử dụng trong CSS</b></h4>
-- Sử dụng Modifier class với bộ CSS
+**6.Simplicity (Sự đơn giản):**
+>- FP: FP thường được xem xét là đơn giản hơn vì nó tránh sử dụng trạng thái thay đổi và có ít khái niệm phức tạp như kế thừa và đa hình.
+>- OOP: OOP có thể dẫn đến mô hình phức tạp hơn do sử dụng kế thừa và các quan hệ đối tượng.
 
+[[↑] Back to top](#table-of-contents)
 
-```css
-.block–hidden { }
-```
-
-- Thay đổi các element dựa trên các block có chứa modifier
-
-```css
-.block–mod .block__elem { }
-```
-
-- Element có Modifier
-
-```css
-.block__elem–mod { }
-```
-
-### Một số lưu ý khi sử dụng BEM
-
-BEM không có khả năng phản ánh cấu trúc lồng nhau của các block và các element. Giả sử: Một block có chứa element 1, element 1 chứa element 2, element 2 chứa element 3. Khi đó, tên của class của block và element nên đặt như sau:
-
-HTML
-```html
-<div class=”block”>
-    <div class=”block__elem1″>
-        <div class=”block__elem2″>
-            <div class=”block__elem3″></div>
-        </div>
-    </div>
-</div>
-```
-
-CSS
-```css
-.block {}
-.block__elem1 {}
-.block__elem2 {}
-.block__elem3 {}
-```
-
-Đặt class như vậy, sẽ làm cho các element chỉ phục thuộc vào với block mà thôi. Sau này, nếu bạn muốn thay đổi giao diện, bạn sẽ có thể dễ dàng di chuyển vị trí của các element trong block cũng như cấu trúc của block DOM lúc này tuy đã thay đổi nhưng bạn không cần quá lo lắng về việc sửa code CSS ban đầu.
+## 🧠 Explain Compare Put vs Post
+- Put được sử dụng để cập nhật hoặc thay thế toàn bộ nội dung của một tài nguyên trên server.
+- Post được sử dụng để tạo một tài nguyên mới trên server hoặc để cập nhật một phần nội dung của một tài nguyên trên server.
 
 [[↑] Back to top](#table-of-contents)

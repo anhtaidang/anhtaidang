@@ -1,5 +1,5 @@
 ---
-<h1 align="center">Series ReactJS - State Management Brainstorm</h1>
+<h1 align="center">Series Frontenđt ReactJS, HTML  - State Management Brainstorm</h1>
 
 #### Made by <a href="https://www.facebook.com/anhtaidang.developer">anhtaidang</a>
 
@@ -10,8 +10,13 @@
 - [Explain Virtual DOM](#-explain-virtual-dom)
 - [Explain Hooks in ReactJS](#-explain-hooks-in-reactjs)
 - [Explain `data-` attribute in DOM HTML](#-explain-data--attribute-in-dom-html)
+- [Explain how interactive with DOM](#-explain-data--attribute-in-dom-html)
+- [Explain HTML sematic](#-explain-html-sematic)
+- [Explain SEO, How to SEO for Web](#-explain-seo-how-to-seo-for-web)
 - [Explain someway to Optimize Refactor Performance in React](#-explain-someway-to-optimize-refactor-performance-in-react)
 - [Explain useEffect vs useLayoutEffect](#-explain-useeffect-vs-uselayouteffect)
+- [Explain (px, rem, em), Box-sizing: border-box, Model box, Responsive, css Selector, Pseudo-class](#-explain-px-rem-em-box-sizing-border-box-model-box-responsive-css-selector-pseudo-class)
+- [Explain BEM? Naming standard CSS follow BEM](#-explain-bem-naming-standard-css-follow-bem)
 
 ---
 ## 🧠 Explain React Component Lifecycle
@@ -112,6 +117,83 @@ console.log(email); // "john@example.com"
 ```
 [[↑] Back to top](#table-of-contents)
 
+## 🧠 Explain how interactive with DOM
+Các thao tác cơ bản với DOM (Document Object Model) là quan trọng khi làm việc với JavaScript để tương tác và thay đổi nội dung của trang web.
+
+1.Truy xuất phần tử (Selecting Elements):
+- `getElementById()`: Lấy phần tử bằng ID.
+- `getElementsByClassName()`: Lấy danh sách các phần tử bằng class.
+- `getElementsByTagName()`: Lấy danh sách các phần tử bằng tên thẻ (tag name).
+- `querySelector()`: Lấy phần tử đầu tiên dựa trên một selector CSS.
+- `querySelectorAll()`: Lấy tất cả các phần tử dựa trên một selector CSS.
+
+2.Truy xuất và thay đổi nội dung (Accessing and Modifying Content):
+- `innerHTML`: Lấy hoặc thiết lập nội dung HTML của một phần tử.
+- `textContent`: Lấy hoặc thiết lập nội dung văn bản của một phần tử.
+- `value`: Lấy hoặc thiết lập giá trị của một phần tử nhập liệu (input).
+- `getAttribute()`: Lấy giá trị của thuộc tính cụ thể của một phần tử.
+- `setAttribute()`: Thiết lập giá trị của thuộc tính cụ thể của một phần tử.
+
+3. Thêm và xoá phần tử (Adding and Removing Elements):
+- `createElement()`: Tạo một phần tử HTML mới.
+- `appendChild()`: Thêm một phần tử con vào phần tử cha.
+- `removeChild()`: Xoá một phần tử con khỏi phần tử cha.
+- `insertBefore()`: Chèn một phần tử trước một phần tử khác.
+
+4.Thêm và xoá lớp CSS (Adding and Removing CSS Classes):
+- `classList.add()`: Thêm một lớp CSS mới cho phần tử.
+- `classList.remove()`: Xoá một lớp CSS khỏi phần tử.
+- `classList.toggle()`: Đảo ngược trạng thái của một lớp CSS (nếu có thì xoá, nếu không thì thêm vào).
+
+5.Xử lý sự kiện (Handling Events):
+- `addEventListener()`: Đăng ký một hàm xử lý sự kiện cho một phần tử.
+- `removeEventListener()`: Huỷ đăng ký một hàm xử lý sự kiện.
+
+
+[[↑] Back to top](#table-of-contents)
+
+## 🧠 Explain HTML sematic
+- HTML semactic có nghĩa là sử dụng thẻ thích hợp nhất cho ý nghĩa của nó. Nó có nghĩa là sử dụng các phần tử có ý nghĩa như `form`, `article` và `table` thay vì chỉ sử dụng `div` và `span`.
+- HTML Semantic giúp trang web trở nên dễ đọc và dễ hiểu cho cả máy tính và con người. Nó cũng có lợi ích trong việc tối ưu hóa SEO (Search Engine Optimization), giúp các công cụ tìm kiếm hiểu rõ hơn về nội dung của trang web. Một số ví dụ về các thẻ và phần tử HTML semantic bao gồm:
+- Sử dụng các thẻ và phần tử semantic giúp trang web trở nên có cấu trúc, dễ bảo trì và cải thiện trải nghiệm người dùng.
+
+
+- `header`: Được sử dụng để đại diện cho phần tiêu đề của trang web hoặc một phần của trang.
+- `nav`: Được sử dụng để đại diện cho một phần liên kết đến các trang hoặc khu vực điều hướng của trang web.
+- `main`: Được sử dụng để bao bọc nội dung chính của trang.
+- `article`: Được sử dụng để biểu thị một bài viết, một tin tức hoặc một phần nội dung độc lập có ý nghĩa.
+- `section`: Được sử dụng để nhóm các phần của trang có cùng chủ đề hoặc mục tiêu.
+- `aside`: Được sử dụng để đại diện cho nội dung bên lề, thường là thông tin bổ sung hoặc liên quan đến nội dung chính.
+- `footer`: Được sử dụng để đại diện cho phần cuối trang web hoặc một phần cụ thể của trang.
+- `figure` và `figcaption`: Được sử dụng để chứa hình ảnh hoặc biểu đồ cùng với một phần mô tả (caption).
+
+[[↑] Back to top](#table-of-contents)
+
+## 🧠 Explain SEO, How to SEO for Web
+
+SEO -Search Engine Optimization nghĩa là tối ưu hóa vị trí tìm kiếm trên các công cụ tìm kiếm như: Google..
+
+Một vài cách SEO một trang web đơn giản:
+
+1.Sử dụng đầy đủ thẻ `meta`<br/>
+2.Sử dụng thẻ `sematic`<br/>
+> Sử dụng thẻ HTML semantic để giúp công cụ tìm kiếm hiểu rõ cấu trúc trang web của bạn.
+> 
+3.Sử dụng nhiều thẻ `h1` cho tiêu đề<br/>
+4.Thẻ `Image` buộc phải có thuộc tính `alt`<br/>
+5.Nghiên cứu từ khóa (Keyword Research):<br/>
+6.Tối ưu hóa hình ảnh và đa phương tiện (Image and Media Optimization)<br/>
+> Đặt tên tập tin hình ảnh một cách mô tả và sử dụng thuộc tính "alt" để mô tả hình ảnh.
+> Nén hình ảnh để giảm dung lượng tải về và tăng tốc độ tải trang.
+> 
+7.Tối ưu hóa tốc độ trang (Page Speed Optimization)<br/>
+8.Sitemap và robots.txt:
+> Tạo sitemap.xml để giúp công cụ tìm kiếm hiểu cấu trúc trang web của bạn.
+> Sử dụng tệp robots.txt để kiểm soát việc các công cụ tìm kiếm có quyền truy cập vào trang web của bạn hay không.
+>
+
+[[↑] Back to top](#table-of-contents)
+
 ## 🧠 Explain someway to Optimize Refactor Performance in React
 Dưới đây là một số cách tối ưu khi sử dụng ReactJS để làm cho ứng dụng React của bạn chạy nhanh hơn và tiêu tốn ít tài nguyên hơn:
 
@@ -182,5 +264,215 @@ Tuy nhiên, có một sự khác biệt quan trọng giữa hai hook này liên 
 
 - `useLayoutEffect`: Chỉ sử dụng trong các trường hợp bạn cần thay đổi DOM hoặc thực hiện các phép tính đo lường, các trường hợp xảy ra lỗi từ useEffect. Hãy nghĩ đến useLayoutEffect như một giải pháp.
 - `useEffect`: Nếu bạn không cần tương tác với DOM trong hầu hết trường hợp nên sử dụng useEffect.
+
+[[↑] Back to top](#table-of-contents)
+
+## 🧠 Explain (px, rem, em), Box-sizing: border-box, Model box, Responsive, css Selector, Pseudo-class
+
+### Box-sizing: border-box là gì?
+Khi chúng ta set một border,padding cho phần tử thì kích thước ban đầu sẽ tăng lên vì vậy cần sử dụng Box-`sizing: border-box` để ngăn chặn điều đó, nó sẽ tính toán lại phần content sao cho content + với các phần tăng thêm sẽ bằng với kích thước mà chúng ta đặt ra ban đầu.
+
+### Model box là gì?
+
+Bao gồm: Content ( phần nội dung chính ), Border ( phần viền ), Padding ( phần đệm thêm ), Margin ( phần dịch chuyển ).
+
+Bạn có thể Inspect một element nào đó, sau đó vào tab `Computed` để xem model box của element đó.
+
+### Responsive
+Khi responsive chúng ta dùng thẻ @media.
+
+Các break-point cơ bản cho các thiết bị như:
+>- Mobile: 0 > 768px
+>- Tablet: 769px > 1024px
+>- Desktop: 1024px trở lên
+
+Ví dụ: Đối với thiết bị từ 0 > 600px sẽ có background màu đỏ
+```css
+@media only screen and (max-width: 600px) {
+  div {
+    background-color: red;
+  }
+}
+```
+
+### CSS Selector
+Những CSS Selector cơ bản bạn có thể tham khảo
+![img.png](../assets/images/css-selector.png)
+
+### Pseudo-class
+- Một Pseudo class trong CSS được dùng để xác định trạng thái đặc biệt của một phần tử. Nó có thể được kết hợp với class để thêm hiệu ứng cho các phần tử.
+- Một số Pseudo class cơ bản như: hover, visited, focus, focus-within, disable, checked....
+
+```css
+/* 
+   Khi thẻ a được hover sẽ hiển thị màu xanh
+*/
+a:hover {
+  color: green;
+}
+```
+
+[[↑] Back to top](#table-of-contents)
+
+## 🧠 Explain BEM? Naming standard CSS follow BEM
+
+### BEM là gì?
+BEM là viết tắt của cụm `Block – Element – Modifier`, là tiêu chuẩn quy ước đặt tên cho các tên lớp CSS. BEM giúp việc lập trình Front-end trở nên dễ hiểu, dễ đọc hơn, dễ làm việc và dễ mở rộng cũng như bảo trì khi làm việc với CSS.
+Việc đặt tên theo tiêu chuẩn giúp các lập trình viên frontend hiểu được đoạn code đó có nghĩa là gì, nó thực hiện nhiệm vụ gì? Từ đó những lập tình viên khác khi đọc code của họ cũng hiểu được bạn đang làm gì, từ đó dễ dàng phân tích, thay đổi và quản lý.
+
+### Tại sao nên dùng BEM?
+Đối với những dự án nhỏ thì BEM có thể chưa cần đến, tuy nhiên các dự án lớn và làm việc nhóm thì BEM rất quan trọng.
+- <b>Giúp cho team làm việc với nhau dễ dàng hơn</b>: Khi làm Teamwork với nhau, mỗi người đều sẽ có một cách đặt tên class riêng và sẽ bị conflict với nhau. Việc sử dụng BEM sẽ bị loại bỏ vấn đề này vì có cấu trúc rõ ràng và dễ dàng tuân thủ khi sử dụng.
+- <b>Modules</b>: Các class của mỗi block sẽ không bị ảnh hưởng gì bởi các yếu tố khác, vì thế bạn sẽ không cần quá lo CSS của class này sẽ gây ảnh hưởng đến class khác.
+- <b>Tái sử dụng lại</b>: Bạn có thể soạn các block riêng biệt và sử dụng lại chúng một cách thuận tiện và giảm số lượng code CSS.
+- <b>Cấu trúc</b>: BEM cung cấp cho CSS một cấu hình vững chắc, đơn giản và rất dễ hiểu.
+
+### Quy ước đặt tên của BEM
+
+```css
+.block {} /* Block */
+.block__element {} /* Element */
+.block--modifier {} /* Modifier */
+```
+<b>1. Block</b>: Là một thành phần của trang web hay ứng dụng đó, các thành phần của DOM cũng có thể là các block. Block ở đây thường là các thành phần header, body, content, footer. Ví dụ section td bên dưới tập hợp các block sau:
+- `.td__container` làm nhiệm vụ cân max width và padding left right.<br/>
+  `.td__inner` làm nhiệm vụ cân padding top bottom và điểm bám cho các element absolute. VD: chỉnh một button…<br/>
+  `.td__header` chứa Sub-title.<br/>
+  `.td__content` chứa Headline và Description.<br/>
+  `.td__footer` chứa button CTA.<br/>
+
+Các prefix của các class đều là td giúp chúng ta có thể nhận diện section khi muốn update mục tương ứng trong css.
+
+<b>2. Elements</b>: Là một thành phần của một block và sẽ không tồn tại độc lập mà không có block vì được đặt bên trong nó, và chúng phụ thuộc vào parent block của nó. Trong BEM, các phần tử được biểu thị bằng dấu gạch dưới kép `__`.
+- `.td__headline` là Text cỡ lớn. Style thường là H1 hoặc H2.<br/>
+  `.td__intro`, `.td__description` làm mô tả content.<br/>
+  `.td__image` chứa ảnh.<br/>
+  `.td__button` với style riêng cho button trong section này.<br/>
+
+<b>3. Modifers</b>: Được dùng để thao tác thay đổi cách hiển thị trên block hoặc phần tử. Ví dụ mình muốn tạo thêm một block `.block__elem` khác nữa và muốn làm nổi bật nó thì sẽ thêm một class `.block__elem--hightlight` để tạo sự khác biệt đó.
+
+### Lợi ích khi sử dụng BEM
+- Style của block không phụ thuộc vào các phần tử khác trên một trang, vì vậy bạn sẽ không bao giờ gặp vấn đề từ việc xếp tầng. Bạn cũng có thể chuyển các block từ dự án đã hoàn thành của mình sang các dự án mới.
+- Có thể tạo ra các block độc lập, xây dựng thành một thư viện các block để tái sử dụng chúng. Điều này sẽ giúp cho CSS của bạn trở nên hiệu quả hơn và làm giảm lượng code CSS mà bạn sẽ phải bảo trì.
+- BEM cung cấp cho code CSS của bạn một cấu trúc vững chắc mà vẫn đơn giản và dễ hiểu.
+
+### Quy tắc, cách sử dụng BEM trong Block, Element, Modifier
+<i>ĐỐI VỚI BLOCK</i>
+<h4><b>Quy tắc đặt tên</b></h3>
+- Tên của block có thể bao gồm các chữ cái Latinh, chữ số và cả dấu gạch ngang
+- Tạo CSS class: thêm một tiền tố ở phía trước. VD như: .block
+- Bất kỳ node DOM nào cũng có thể là một block nếu như nó có một class name
+
+VD như: `<div class=”block”>…</div>`
+
+<h4><b>Cách sử dụng trong CSS</b></h4>
+- Chỉ sử dụng bộ chọn của class
+- Không dùng tên thẻ hoặc id
+- Không phụ thuộc vào các block/element trên 1 trang
+
+VD như: .block { color: #042; }
+
+<i>ĐỐI VỚI ELEMENT</i>
+<h4><b>Quy tắc đặt tên</b></h4>
+- Tên Element có thể bao gồm các chữ số, chữ cái Latinh, dấu gạch ngang, gạch dưới.
+- Tạo class CSS: tên block cộng với 2 dấu gạch dưới và tên Element.
+
+VD như: .block__elem
+
+- Bất kỳ một node DOM nào trong một block cũng đều có thể là một element
+- Trong một block nhất định, tất cả các element cũng đều bằng nhau về mặt ngữ nghĩa
+
+```html
+<div class=”block”>
+    …
+    <span class=”block__elem”> </span>
+</div>
+```
+
+<h4><b>Cách sử dụng trong CSS</b></h4>
+
+- Chỉ sử dụng được bộ chọn class
+- Không thể sử dụng tên thẻ hoặc id
+- Không phụ thuộc vào các block/ element trên các trang mạng khác
+
+
+```css
+Nên: 
+    .block__elem { color: #042; }
+Không nên: 
+    .block .block__elem { color: #042; }
+    div.block__elem { color: #042; }
+```
+
+<i>ĐỐI VỚI MODIFIER</i>
+<h4><b>Quy tắc đặt tên</b></h4>
+- Tên của Modifier có thể gồm các chữ cái Latinh, dấu gạch ngang, chữ số và dấu gạch dưới
+- Tạo class CSS: tên của block hoặc element cộng hai dấu gạch ngang, cộng với tên của Modifier
+- Dấu cách trong các Modifier dài sẽ được thay thế bằng dấu gạch ngang.
+
+
+```css
+.block–mod { }
+.block__elem–mod { }
+.block–color-black { }
+.block–color-red { }
+```
+
+- Modifier là tên class mà bạn thêm vào node DOM block/ element
+- Tăng thêm các Modifier class vào các nhóm block/ element mà chúng ta cần sửa đổi và giữ lại class ban đầu của block/element đó.
+
+VD như: <br/>
+```html
+Nên: 
+    <div class=”block block–mod”>…</div>
+    <div class=”block block–size-big block–shadow-yes”>…</div>
+Không nên: 
+    <div class=”block–mod”>…</div>
+```
+
+<h4><b>Cách sử dụng trong CSS</b></h4>
+- Sử dụng Modifier class với bộ CSS
+
+
+```css
+.block–hidden { }
+```
+
+- Thay đổi các element dựa trên các block có chứa modifier
+
+```css
+.block–mod .block__elem { }
+```
+
+- Element có Modifier
+
+```css
+.block__elem–mod { }
+```
+
+### Một số lưu ý khi sử dụng BEM
+
+BEM không có khả năng phản ánh cấu trúc lồng nhau của các block và các element. Giả sử: Một block có chứa element 1, element 1 chứa element 2, element 2 chứa element 3. Khi đó, tên của class của block và element nên đặt như sau:
+
+HTML
+```html
+<div class=”block”>
+    <div class=”block__elem1″>
+        <div class=”block__elem2″>
+            <div class=”block__elem3″></div>
+        </div>
+    </div>
+</div>
+```
+
+CSS
+```css
+.block {}
+.block__elem1 {}
+.block__elem2 {}
+.block__elem3 {}
+```
+
+Đặt class như vậy, sẽ làm cho các element chỉ phục thuộc vào với block mà thôi. Sau này, nếu bạn muốn thay đổi giao diện, bạn sẽ có thể dễ dàng di chuyển vị trí của các element trong block cũng như cấu trúc của block DOM lúc này tuy đã thay đổi nhưng bạn không cần quá lo lắng về việc sửa code CSS ban đầu.
 
 [[↑] Back to top](#table-of-contents)
