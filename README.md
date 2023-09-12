@@ -12,8 +12,6 @@
 - <a href="https://github.com/anhtaidang/anhtaidang/blob/main/javascript/series-javascript-brain-storm.md" target="_blank"> 🧠 Javascript</a>
 - <a href="https://github.com/anhtaidang/anhtaidang/blob/main/reactjs/series-react-brain-storm.md" target="_blank"> 🧠 ReactJS - State Management</a>
 - <a href="https://github.com/anhtaidang/anhtaidang/blob/main/reactjs/series-react-brain-storm.md" target="_blank"> 🧠 NextJS (Comming soon)</a>
----
-<br/>
 <br/>
 
 📋 **Languages**
