@@ -19,6 +19,7 @@
 - [Explain Callback in Javascript](#-explain-callback-in-javascript)
 - [Explain Hoisting in Javascript](#-explain-hoisting-in-javascript)
 - [Explain Scope in Javascript](#-explain-hoisting-in-javascript)
+- [Explain Async Defer Script in Javascript](#-explain-async-defer-script-in-javascript)
 - [Explain Design Pattern](#-explain-design-pattern)
 - [Explain Cookies Session Storage và Local Storage](#-explain-cookies-session-storage-v-local-storage)
 - [Explain BEM? Naming standard CSS follow BEM](#-explain-bem-naming-standard-css-follow-bem)
@@ -585,13 +586,63 @@ function localFunction() {
 >- Các hàm có thể truy cập các biến ở mức toàn cục, nhưng các biến ở mức cục bộ của một hàm không thể truy cập từ các hàm khác.
 >- JavaScript sử dụng "lexical scope" (scope dựa trên vị trí mã nguồn) để xác định phạm vi của biến và hàm.
 
+[[↑] Back to top](#table-of-contents)
 
+## 🧠 Explain Async Defer Script in Javascript
+
+<h3>Vấn đề</h3>
+>- Javascript là 1 trong những tài nguyên chặn trang, có nghĩa là việc hiển thị HTML có thể bị chặn hay làm chậm bởi Javascript.<br/>
+>- Khi parser đọc đến `script` tag, bất kể là inline hay external file, quá trình parse sẽ tạm dừng để fetch script đó về và execute.<br/>
+>- Việc này có thể là vấn đề nếu chúng ta load nhiều file Javascript trên trang, làm tăng thời gian load trang mặc dù có thể việc hiển thị html ở trang không thực sự phụ thuộc vào những file javascript đó.
+>- `Async` và `defer`, cho phép chúng ta kiểm soát và load những file này theo ý muốn, tránh chặn quá trình load trang.
+
+<h3>Cách dùng</h3>
+![img.png](../assets/images/img.png)
+
+<h3>Script</h3>
+```html
+<html>  
+<head> ... </head>  
+<body>  
+    ...
+    <script src="script.js">
+    ....
+</body>  
+</html>  
+```
+Với thẻ script không có thuộc tính gì khác thì HTML file sẽ được parse cho đến khi gặp phải thẻ script, đến lúc này thì quá trình parse sẽ tạm dùng và để fetch script file về (nếu là external file), sau đó execute những code script này, sau đó mới tiếp tục lại quá trình parse html
+
+![img.png](../assets/images/script1.png)
+
+<h3>Script async</h3>
+```javascript
+<script async src="script.js">  
+```
+Với thẻ script có thuộc tính `async`, khi quá trình parse html gặp phải script này, nó sẽ vẫn tiếp tục parse html cho đến khi script này được download xong, thì quá trình parse html mới tạm dừng để execute những code script này, sau đó lại tiếp tiếp quá trình parse html.
+
+![img.png](../assets/images/script2.png)
+
+<h3>Script defer</h3>
+```javascript
+<script defer src="script.js"> 
+```
+Với thẻ script có thuộc tính defer, quá trình parse html sẽ không bị dừng lại mà parse cho đến khi hoàn thành, quá trình download các script file được tiến hành song song, và cuối cùng thì sẽ execute những script code này khi html đã parse xong.
+
+![img.png](../assets/images/script3.png)
+
+**Vậy nên dùng khi nào?**
+
+>***Quy tắc như sau:***
+>- Nếu script là 1 module tách biệt, không phụ thuộc vào script nào khác thì nên sử dụng async cho load và execute với trang luôn
+>- Nếu script phụ thuộc vào script khác, hoặc bị script khác phụ thuộc, thì nên dùng defer, để load và execute theo thứ tự
+>- Nếu script nhỏ và các script khác phụ thuộc vào nó, thì cho load inline và không cần async hay defer
+
+<h3>Lợi ích</h3>
+Với việc biết cách sử dụng các thuộc tính `async`, `defer` hợp lý thì tốc độ load trang sẽ được cải thiện hơn, mang lại cảm giác thích thú cho người dùng. Vì vậy nó giúp tối ưu SEO, giúp tăng điểm Google Page Speed.
 
 [[↑] Back to top](#table-of-contents)
 
 ## 🧠 Explain Design Pattern
-
-
 Design pattern là một kỹ thuật giải pháp chung cho một vấn đề chung trong lập trình. Các design pattern được mô tả dưới dạng các mẫu code có thể được sử dụng lại trong các ứng dụng khác nhau.
 
 Design Pattern thường chia thành các loại cơ bản sau:
