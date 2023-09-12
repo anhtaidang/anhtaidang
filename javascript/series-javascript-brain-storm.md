@@ -18,9 +18,11 @@
 - [Explain Promise in Javascript](#-explain-promise-in-javascript)
 - [Explain Callback in Javascript](#-explain-callback-in-javascript)
 - [Explain Hoisting in Javascript](#-explain-hoisting-in-javascript)
-- [Explain Scope in Javascript](#-explain-hoisting-in-javascript)
+- [Explain Scope in Javascript](#-explain-scope-in-javascript)
 - [Explain Async Defer Script in Javascript](#-explain-async-defer-script-in-javascript)
+- [Explain callback, Promise, await async](#-explain-callback-promise-await-async)
 - [Explain Design Pattern](#-explain-design-pattern)
+- [Explain Mutable vs Immutable](#-explain-mutable-vs-immutable)
 - [Explain Cookies Session Storage và Local Storage](#-explain-cookies-session-storage-v-local-storage)
 - [Explain BEM? Naming standard CSS follow BEM](#-explain-bem-naming-standard-css-follow-bem)
 ---
@@ -626,7 +628,7 @@ Với thẻ script có thuộc tính `async`, khi quá trình parse html gặp p
 ```javascript
 <script defer src="script.js"> 
 ```
-Với thẻ script có thuộc tính defer, quá trình parse html sẽ không bị dừng lại mà parse cho đến khi hoàn thành, quá trình download các script file được tiến hành song song, và cuối cùng thì sẽ execute những script code này khi html đã parse xong.
+Với thẻ script có thuộc tính `defer`, quá trình parse html sẽ không bị dừng lại mà parse cho đến khi hoàn thành, quá trình download các script file được tiến hành song song, và cuối cùng thì sẽ execute những script code này khi html đã parse xong.
 
 ![img.png](../assets/images/script3.png)
 
@@ -639,6 +641,83 @@ Với thẻ script có thuộc tính defer, quá trình parse html sẽ không b
 
 <h3>Lợi ích</h3>
 Với việc biết cách sử dụng các thuộc tính `async`, `defer` hợp lý thì tốc độ load trang sẽ được cải thiện hơn, mang lại cảm giác thích thú cho người dùng. Vì vậy nó giúp tối ưu SEO, giúp tăng điểm Google Page Speed.
+
+[[↑] Back to top](#table-of-contents)
+
+## 🧠 Explain callback, Promise, await async
+`Callback, Promise, và await/async` là các cơ chế trong JavaScript để xử lý các tác vụ bất đồng bộ, như gọi API, đọc/ghi tệp, hoặc thực hiện các hoạt động khác mà có thể mất thời gian để hoàn thành.
+
+***1. Callback:***
+- Callback là một hàm (function) được truyền làm tham số cho một hàm khác và được gọi sau khi hàm đó hoàn thành công việc của nó.
+- Callback thường được sử dụng để xử lý các tác vụ bất đồng bộ và đảm bảo rằng mã không bị chặn (blocked) trong quá trình chờ kết quả.
+- Callback có thể dẫn đến hiện tượng "callback hell" (lồng callback) khi có nhiều tác vụ bất đồng bộ liên tiếp, làm cho mã trở nên khó đọc và quản lý.
+```javascript
+function fetchData(callback) {
+  // Gọi API bất đồng bộ và gọi callback khi hoàn thành
+  setTimeout(() => {
+    const data = "Dữ liệu từ máy chủ";
+    callback(data);
+  }, 1000);
+}
+
+function processData(data) {
+  console.log("Dữ liệu đã xử lý: " + data);
+}
+
+fetchData(processData);
+```
+
+***2.Promise:***
+- Promise là một đối tượng trong JavaScript được sử dụng để xử lý các tác vụ bất đồng bộ một cách dễ đọc và quản lý hơn. Nó có ba trạng thái chính: Pending (Chờ), Fulfilled (Thành công), và Rejected (Từ chối).
+- Promise cho phép bạn xác định xem một tác vụ bất đồng bộ đã thành công hay thất bại, và sau đó xử lý kết quả tương ứng.
+- Promise cũng hỗ trợ chuỗi các phép gọi, giúp tránh callback hell bằng cách sử dụng `.then()` và `.catch()`.
+```javascript
+function fetchData() {
+  return new Promise((resolve, reject) => {
+    // Gọi API bất đồng bộ và xử lý kết quả
+    setTimeout(() => {
+      const data = "Dữ liệu từ máy chủ";
+      resolve(data); // Thành công
+      // Hoặc reject(error) nếu có lỗi
+    }, 1000);
+  });
+}
+
+fetchData()
+  .then((data) => {
+    console.log("Thành công: " + data);
+  })
+  .catch((error) => {
+    console.error("Lỗi: " + error);
+  });
+```
+
+***3.await/async:***
+- `await` và `async` là một cú pháp trong JavaScript giúp bạn xử lý các Promise một cách đồng bộ và dễ đọc hơn.
+- `async` được sử dụng để định nghĩa một hàm bất đồng bộ, trong đó bạn có thể sử dụng `await` để đợi kết quả của một Promise trước khi tiếp tục thực hiện câu lệnh tiếp theo.
+- `await` chỉ có thể được sử dụng trong các hàm được đánh dấu là `async`.
+
+```javascript
+async function fetchData() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      const data = "Dữ liệu từ máy chủ";
+      resolve(data);
+    }, 1000);
+  });
+}
+
+async function processData() {
+  try {
+    const data = await fetchData();
+    console.log("Thành công: " + data);
+  } catch (error) {
+    console.error("Lỗi: " + error);
+  }
+}
+
+processData();
+```
 
 [[↑] Back to top](#table-of-contents)
 
@@ -662,6 +741,33 @@ Một số ví dụ cụ thể của Design Pattern bao gồm:
 - <b>Observer Pattern</b>: Định nghĩa một phương thức một-đến-nhiều giữa các đối tượng để thông báo về sự thay đổi trạng thái.
 
 Mục tiêu của Design Pattern là cung cấp một phong cách cấu trúc cho mã nguồn và giúp cải thiện tính hiệu quả, bảo trì và mở rộng của mã nguồn.
+
+[[↑] Back to top](#table-of-contents)
+
+## 🧠 Explain Mutable vs Immutable
+Mutable (có thể thay đổi) và Immutable (không thể thay đổi) là hai khái niệm quan trọng trong lập trình và thể hiện cách dữ liệu được xử lý và thay đổi trong chương trình. Dưới đây là sự phân biệt giữa chúng:
+
+***1.Mutable (Có thể thay đổi):***
+- Mutable là thuộc tính của dữ liệu cho phép nó có thể thay đổi sau khi đã được tạo. Điều này có nghĩa rằng giá trị của biến hoặc đối tượng có thể bị thay đổi thông qua các phương thức hoặc thao tác.
+```javascript
+let array = [1, 2, 3];
+array.push(4); // Có thể thay đổi mảng ban đầu
+```
+Trong trường hợp mutable, nếu bạn thay đổi dữ liệu trong một đối tượng, dữ liệu đó cũng sẽ thay đổi tại chỗ và có thể ảnh hưởng đến các tham chiếu khác đến đối tượng đó.
+
+***2.Immutable (Không thể thay đổi):***
+- Immutable là thuộc tính của dữ liệu không thể thay đổi sau khi đã được tạo. Điều này có nghĩa rằng một khi dữ liệu đã được tạo, nó không thể được sửa đổi trực tiếp.
+```javascript
+const str = "Hello, world!";
+const newStr = str.toUpperCase(); // Không thể thay đổi giá trị của str, mà trả về một giá trị mới
+```
+
+Trong trường hợp immutable, khi bạn thay đổi dữ liệu, bạn tạo ra một bản sao của dữ liệu ban đầu và thực hiện thay đổi trên bản sao đó, không làm ảnh hưởng đến dữ liệu ban đầu hoặc các tham chiếu khác đến nó.
+
+> Sự phân biệt quan trọng giữa mutable và immutable:
+>- Immutable giúp tránh lỗi xử lý đồng thời (concurrency bugs) khi nhiều luồng hoặc tiến trình thay đổi dữ liệu.
+>- Immutable giúp bạn tạo ra bản sao của dữ liệu một cách an toàn để xử lý mà không ảnh hưởng đến dữ liệu gốc.
+>- Immutable thường được sử dụng trong các ngôn ngữ lập trình và thư viện phức tạp để làm cho quá trình xử lý và quản lý dữ liệu dễ dàng hơn và ít lỗi hơn.
 
 [[↑] Back to top](#table-of-contents)
 
