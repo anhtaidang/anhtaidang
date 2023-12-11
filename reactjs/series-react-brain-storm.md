@@ -1,5 +1,5 @@
 ---
-<h1 align="center">Series Frontenđt ReactJS, HTML  - State Management Brainstorm</h1>
+<h1 align="center">Series Frontend ReactJS, HTML  - State Management Brainstorm</h1>
 
 #### Made by <a href="https://www.facebook.com/anhtaidang.developer">anhtaidang</a>
 
@@ -23,7 +23,7 @@
 >- Lifecycle của một React component là chu kỳ của component từ khi nó được tạo ra, hiển thị lên giao diện, cho đến khi nó bị hủy bỏ hoặc unmount.
 >- React đã giới thiệu một số phương thức vòng đời (lifecycle methods) để cho phép bạn can thiệp và xử lý logic tại các điểm khác nhau trong chu kỳ của component.
 
-![img.png](../assets/images/img.png)
+![img.png](images/lifecycle-react.png)
 
 **1.Mounting (Khởi tạo):**
 - `constructor()`: Phương thức khởi tạo được gọi khi component được tạo ra. Bạn có thể sử dụng nó để thiết lập state ban đầu và bind các phương thức.
@@ -297,7 +297,7 @@ Ví dụ: Đối với thiết bị từ 0 > 600px sẽ có background màu đ�
 
 ### CSS Selector
 Những CSS Selector cơ bản bạn có thể tham khảo
-![img.png](../assets/images/css-selector.png)
+![img.png](images/css-selector.png)
 
 ### Pseudo-class
 - Một Pseudo class trong CSS được dùng để xác định trạng thái đặc biệt của một phần tử. Nó có thể được kết hợp với class để thêm hiệu ứng cho các phần tử.

@@ -8,7 +8,10 @@
   I'm a Full-Stack Developer based in SaiGon, Viet Nam
 </p>
 
+![bannerStudy](assets/images/bannerStudy.png)
+
 # Series Tech Brainstorm
+- <a href="https://github.com/anhtaidang/anhtaidang/blob/main/algorithms/series-algorithms-brain-storm.md" target="_blank"> 🧠 Algorithms</a>
 - <a href="https://github.com/anhtaidang/anhtaidang/blob/main/javascript/series-javascript-brain-storm.md" target="_blank"> 🧠 Javascript</a>
 - <a href="https://github.com/anhtaidang/anhtaidang/blob/main/reactjs/series-react-brain-storm.md" target="_blank"> 🧠 ReactJS - State Management</a>
 - <a href="https://github.com/anhtaidang/anhtaidang/blob/main/reactjs/series-react-brain-storm.md" target="_blank"> 🧠 NextJS (Comming soon)</a>
